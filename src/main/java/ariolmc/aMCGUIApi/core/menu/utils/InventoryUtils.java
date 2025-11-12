@@ -25,6 +25,8 @@ public class InventoryUtils {
 
     private static void setContentsWithoutAir(Inventory inv, ItemStack[] contents){
         for (int i = 0; i < contents.length; i++) {
+            if(i > inv.getSize()) return;
+
             ItemStack item = contents[i];
             if(item.getType().equals(Material.AIR)) continue;
             inv.setItem(i, item);
