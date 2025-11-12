@@ -9,7 +9,7 @@ import org.bukkit.inventory.Inventory;
 
 public class Menu {
 
-    @Getter private Inventory inventory;
+    @Getter protected Inventory inventory;
 
     public Menu(InventoryFabric fabric){
         this.inventory = fabric.create();
