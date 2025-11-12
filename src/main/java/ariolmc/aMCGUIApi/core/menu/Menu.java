@@ -6,7 +6,6 @@ import ariolmc.aMCGUIApi.core.menu.utils.InventoryUtils;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
 import org.bukkit.inventory.Inventory;
-;
 
 public class Menu {
 
