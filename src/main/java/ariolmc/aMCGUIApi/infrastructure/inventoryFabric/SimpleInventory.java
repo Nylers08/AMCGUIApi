@@ -1,9 +1,8 @@
-package ariolmc.aMCGUIApi.core.menu.inventoryFabric;
+package ariolmc.aMCGUIApi.infrastructure.inventoryFabric;
 
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 
 public class SimpleInventory implements InventoryFabric {
 

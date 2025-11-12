@@ -1,11 +1,12 @@
 package ariolmc.aMCGUIApi.core.menu;
 
 import ariolmc.aMCGUIApi.core.itemGUI.ItemGUI;
-import ariolmc.aMCGUIApi.core.menu.inventoryFabric.InventoryFabric;
+import ariolmc.aMCGUIApi.infrastructure.inventoryFabric.InventoryFabric;
 import ariolmc.aMCGUIApi.core.menu.utils.InventoryUtils;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
 import org.bukkit.inventory.Inventory;
+;
 
 public class Menu {
 
