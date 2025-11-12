@@ -1,4 +1,4 @@
-package ariolmc.aMCGUIApi.core.menu;
+package ariolmc.aMCGUIApi.core.menu.someMenu;
 
 import ariolmc.aMCGUIApi.core.itemGUI.ItemGUI;
 import ariolmc.aMCGUIApi.infrastructure.inventoryFabric.InventoryFabric;

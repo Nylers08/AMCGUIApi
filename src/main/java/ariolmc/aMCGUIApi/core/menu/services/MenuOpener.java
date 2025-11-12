@@ -1,6 +1,6 @@
 package ariolmc.aMCGUIApi.core.menu.services;
 
-import ariolmc.aMCGUIApi.core.menu.Menu;
+import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
 import ariolmc.aMCGUIApi.infrastructure.inventoryOpener.InventoryOpener;
 
 import java.util.UUID;
