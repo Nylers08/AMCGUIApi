@@ -2,3 +2,8 @@ name: AMCGUIApi
 version: '1.0-SNAPSHOT'
 main: ariolmc.aMCGUIApi.AMCGUIApi
 api-version: '1.21'
+
+commands:
+  guiapi:
+    description: AMCGUIApi
+    usage: /guiapi

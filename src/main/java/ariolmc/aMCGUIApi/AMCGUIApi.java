@@ -1,10 +1,13 @@
 package ariolmc.aMCGUIApi;
 
+import ariolmc.aMCGUIApi.core.commands.AbstractCommand;
 import ariolmc.aMCGUIApi.core.menu.services.MenuOpener;
 import ariolmc.aMCGUIApi.core.menu.services.MenuRegistry;
 import ariolmc.aMCGUIApi.infrastructure.ApiWrappers;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Objects;
 
 public final class AMCGUIApi extends JavaPlugin {
 
@@ -22,6 +25,8 @@ public final class AMCGUIApi extends JavaPlugin {
 
         initApiWrappers();
         initMenuServices();
+
+        initCommands();
     }
 
     private void initApiWrappers(){
@@ -32,6 +37,11 @@ public final class AMCGUIApi extends JavaPlugin {
         registry = new MenuRegistry();
         opener = new MenuOpener(registry, apiWrappers.getInventoryOpener());
     }
+
+    private void initCommands(){
+        Objects.requireNonNull(getCommand("guiapi")).setExecutor(new AbstractCommand());
+    }
+
 
     @Override
     public void onDisable() {

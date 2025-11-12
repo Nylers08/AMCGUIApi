@@ -1,5 +1,6 @@
 package ariolmc.aMCGUIApi.core.itemGUI.utils;
 
+import ariolmc.aMCGUIApi.AMCGUIApi;
 import lombok.Getter;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -11,7 +12,7 @@ import java.util.UUID;
 public class ItemIdUtils {
 
     @Getter private final static NamespacedKey ID_KEY =
-            new NamespacedKey("ItemGUI", "id");
+            new NamespacedKey(AMCGUIApi.getInstance(), "id");
 
     public static void setIdToNBT(ItemStack item, String id){
         ItemMeta meta = item.getItemMeta();
