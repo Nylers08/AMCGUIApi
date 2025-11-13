@@ -1,6 +1,9 @@
 package ariolmc.aMCGUIApi.core.menu.someMenu;
 
 import ariolmc.aMCGUIApi.core.itemGUI.ItemGUI;
+import ariolmc.aMCGUIApi.core.itemGUI.itemGUIFabric.ItemGUIFabric;
+import ariolmc.aMCGUIApi.core.itemGUI.services.ItemGUIFabricRegistrar;
+import ariolmc.aMCGUIApi.core.itemGUI.services.ItemGUIRegistry;
 import ariolmc.aMCGUIApi.core.menu.namedInventory.NamedInventory;
 import ariolmc.aMCGUIApi.core.menu.namedInventory.fabric.NamedInventoryFabric;
 import lombok.Getter;
@@ -12,9 +15,11 @@ import org.jetbrains.annotations.NotNull;
 public class BaseMenu implements Menu {
 
     @Getter protected NamedInventory namedInventory;
+    @Getter private ItemGUIRegistry itemRegistry;
 
-    public BaseMenu(NamedInventoryFabric fabric){
+    public BaseMenu(NamedInventoryFabric fabric, ItemGUIRegistry itemRegistry){
         this.namedInventory = fabric.create(this);
+        this.itemRegistry = itemRegistry;
     }
 
     @Override
@@ -28,7 +33,9 @@ public class BaseMenu implements Menu {
     }
 
     @Override
-    public void setItemGUI(int slot, ItemGUI itemGUI){
+    public void setItemGUI(int slot, ItemGUIFabric fabric){
+        ItemGUI itemGUI = fabric.create();
+        itemRegistry.register(itemGUI);
         namedInventory.setItem(slot, itemGUI.getItemStack());
     }
 

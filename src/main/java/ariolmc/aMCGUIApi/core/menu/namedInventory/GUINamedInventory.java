@@ -24,6 +24,7 @@ public class GUINamedInventory implements NamedInventory{
         this.creator = creator;
     }
 
+    @Override
     public void rename(Component title){
         this.title = title;
         InventoryUtils utils = new InventoryUtils(creator);
@@ -31,14 +32,17 @@ public class GUINamedInventory implements NamedInventory{
     }
 
 
+    @Override
     public void setItem(int slot, ItemStack itemStack){
         inventory.setItem(slot, itemStack);
     }
 
+    @Override
     public ItemStack getItem(int slot){
         return inventory.getItem(slot);
     }
 
+    @Override
     public void setContents(ItemStack[] contents){
         inventory.setContents(contents);
     }
@@ -53,7 +57,7 @@ public class GUINamedInventory implements NamedInventory{
 
     @Override
     public void changeSize(int size) {
-        checkSizeCorrect(size);
+        checkSizeCorrectOrThrow(size);
 
         ItemStack[] croppedContents = getCroppedContents(size);
         createNewInvWithNewSize(size);
@@ -62,7 +66,7 @@ public class GUINamedInventory implements NamedInventory{
 
     @Override
     public void createNewInvWithNewSize(int size) {
-        checkSizeCorrect(size);
+        checkSizeCorrectOrThrow(size);
         inventory = creator.create(inventory.getHolder(), size, title);
     }
 
@@ -76,7 +80,7 @@ public class GUINamedInventory implements NamedInventory{
     }
 
 
-    private void checkSizeCorrect(int size){
+    private void checkSizeCorrectOrThrow(int size){
         if(isMultiple9(size) && correctSize(size)) return;
         throw new InvalidInventorySize(title, size);
     }
