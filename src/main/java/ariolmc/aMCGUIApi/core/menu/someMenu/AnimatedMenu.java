@@ -1,12 +1,11 @@
 package ariolmc.aMCGUIApi.core.menu.someMenu;
 
-import ariolmc.aMCGUIApi.core.menu.namedInventory.NamedInventory;
 import ariolmc.aMCGUIApi.core.menu.namedInventory.fabric.NamedInventoryFabric;
 import org.bukkit.inventory.Inventory;
 
 import java.util.List;
 
-public class AnimatedMenu extends Menu{
+public class AnimatedMenu extends BaseMenu {
 
     private final List<Inventory> frames;
     private int currentFrameIndex = 0;

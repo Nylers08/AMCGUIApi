@@ -1,6 +1,6 @@
 package ariolmc.aMCGUIApi.core.menu.services;
 
-import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
+import ariolmc.aMCGUIApi.core.menu.someMenu.BaseMenu;
 import ariolmc.aMCGUIApi.infrastructure.inventoryOpener.InventoryOpener;
 
 import java.util.UUID;
@@ -15,7 +15,7 @@ public class MenuOpener {
         this.registry = registry;
     }
 
-    public void open(UUID playerId, Menu menu){
+    public void open(UUID playerId, BaseMenu menu){
         inventoryOpener.open(playerId, menu.getInventory());
         registry.register(playerId, menu);
     }
