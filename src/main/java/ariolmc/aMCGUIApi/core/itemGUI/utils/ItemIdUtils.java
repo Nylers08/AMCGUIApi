@@ -18,6 +18,7 @@ public class ItemIdUtils {
         ItemMeta meta = item.getItemMeta();
         meta.getPersistentDataContainer()
                 .set(ID_KEY, PersistentDataType.STRING, id);
+        item.setItemMeta(meta);
     }
 
     public static String getIdFromNBT(ItemStack item){
