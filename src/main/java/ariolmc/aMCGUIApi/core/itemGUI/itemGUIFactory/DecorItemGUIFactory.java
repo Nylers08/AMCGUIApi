@@ -2,10 +2,8 @@ package ariolmc.aMCGUIApi.core.itemGUI.itemGUIFactory;
 
 import ariolmc.aMCGUIApi.core.itemGUI.ItemActions.Action;
 import ariolmc.aMCGUIApi.core.itemGUI.ItemActions.CancelInventoryClick;
-import ariolmc.aMCGUIApi.core.itemGUI.utils.ItemRenameUtil;
-import net.kyori.adventure.text.Component;
-import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,43 +11,26 @@ import java.util.List;
 public class DecorItemGUIFactory extends AbstractItemGUIFactory {
 
     public DecorItemGUIFactory(ItemStack item){
-        super(item);
-    }
-
-    public DecorItemGUIFactory(Material material, int amount){
         super(
-                new ItemStack(material, amount)
+                item,
+                buildActions()
         );
     }
 
-    public DecorItemGUIFactory(Material material){
+    public DecorItemGUIFactory(ItemStack item, List<Action> actions){
         super(
-                new ItemStack(material)
+                item,
+                buildActions(actions)
         );
     }
 
-    public DecorItemGUIFactory(Component name, ItemStack item){
-        super(
-                new ItemStack(item)
-        );
-        ItemRenameUtil.rename(this.item, name);
+    private static List<Action> buildActions(){
+        return List.of(new CancelInventoryClick());
     }
 
-    public DecorItemGUIFactory(Component name, Material material){
-        this(name, new ItemStack(material));
-    }
-
-    public DecorItemGUIFactory(Component name, Material material, int amount){
-        this(name, new ItemStack(material, amount));
-    }
-
-
-    @Override
-    protected List<Action> buildActions(){
-        List<Action> actions = new ArrayList<>();
-
-        actions.add(new CancelInventoryClick());
-
+    private static List<Action> buildActions(List<Action> otherActions){
+        List<Action> actions = new ArrayList<>(buildActions());
+        actions.addAll(otherActions);
         return actions;
     }
 

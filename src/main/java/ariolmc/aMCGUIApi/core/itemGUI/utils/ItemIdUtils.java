@@ -1,6 +1,9 @@
 package ariolmc.aMCGUIApi.core.itemGUI.utils;
 
 import ariolmc.aMCGUIApi.AMCGUIApi;
+import ariolmc.aMCGUIApi.core.itemGUI.utils.exceptions.ImpossibleGetIdFromNullItem;
+import ariolmc.aMCGUIApi.core.itemGUI.utils.exceptions.ImpossibleSetIdForNullItem;
+import ariolmc.aMCGUIApi.core.itemGUI.utils.exceptions.ImpossibleVerifyIdForNullItem;
 import lombok.Getter;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -15,6 +18,8 @@ public class ItemIdUtils {
             new NamespacedKey(AMCGUIApi.getInstance(), "id");
 
     public static void setIdToNBT(ItemStack item, String id){
+        throwIfItemStackIsNull(item, new ImpossibleSetIdForNullItem());
+
         ItemMeta meta = item.getItemMeta();
         meta.getPersistentDataContainer()
                 .set(ID_KEY, PersistentDataType.STRING, id);
@@ -22,16 +27,24 @@ public class ItemIdUtils {
     }
 
     public static String getIdFromNBT(ItemStack item){
+        throwIfItemStackIsNull(item, new ImpossibleGetIdFromNullItem());
+
         ItemMeta meta = item.getItemMeta();
         return meta.getPersistentDataContainer()
                 .get(ID_KEY, PersistentDataType.STRING);
     }
 
     public static boolean hasIdInNBT(ItemStack item){
+        throwIfItemStackIsNull(item, new ImpossibleVerifyIdForNullItem());
+
         ItemMeta meta = item.getItemMeta();
+        if(meta == null)
+            return false;
+
         return meta.getPersistentDataContainer()
                 .has(ID_KEY, PersistentDataType.STRING);
     }
+
 
     public static void generateIdInNBT(ItemStack item){
         setIdToNBT(item, generateId());
@@ -40,4 +53,11 @@ public class ItemIdUtils {
     public static String generateId(){
         return UUID.randomUUID().toString();
     }
+
+
+    private static void throwIfItemStackIsNull(ItemStack itemStack, RuntimeException e){
+        if(itemStack==null) throw e;
+    }
+
+
 }

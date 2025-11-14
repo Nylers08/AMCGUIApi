@@ -3,8 +3,7 @@ package ariolmc.aMCGUIApi.core.commands;
 import ariolmc.aMCGUIApi.AMCGUIApi;
 import ariolmc.aMCGUIApi.core.menu.services.MenuServices;
 import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
-import ariolmc.aMCGUIApi.core.menu.someMenu.factory.MenuFactory;
-import ariolmc.aMCGUIApi.core.menu.someMenu.factory.TestMenuFactory;
+import ariolmc.aMCGUIApi.core.menu.someMenu.factory.*;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -20,7 +19,7 @@ public class AbstractCommand implements CommandExecutor {
 
     public AbstractCommand(){
 
-        MenuFactory menuFactory = new TestMenuFactory();
+        MenuFactory menuFactory = new Test2MenuFactory();
         menu = menuFactory.create();
 
         services = AMCGUIApi.getInstance().getMenuServices();
@@ -31,12 +30,12 @@ public class AbstractCommand implements CommandExecutor {
 
         Player player = (Player) commandSender;
 
-        services.open(player.getUniqueId(), menu);
+        services.openNewMenu(player.getUniqueId(), new Test4MenuFactory(menu));
 
         Bukkit.getScheduler().runTaskLater(AMCGUIApi.getInstance(), ()->{
             Component newTitle = menu.getTitle();
             newTitle = newTitle.append(Component.text("_кек"));
-            services.rename(menu,newTitle);
+            services.rename(menu, newTitle);
         }, 20L * 3);
 
         return true;

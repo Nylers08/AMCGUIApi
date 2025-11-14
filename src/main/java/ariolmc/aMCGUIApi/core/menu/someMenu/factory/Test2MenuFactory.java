@@ -1,7 +1,9 @@
 package ariolmc.aMCGUIApi.core.menu.someMenu.factory;
 
 import ariolmc.aMCGUIApi.AMCGUIApi;
+import ariolmc.aMCGUIApi.core.itemGUI.ItemActions.RenameAction;
 import ariolmc.aMCGUIApi.core.itemGUI.ItemGUI;
+import ariolmc.aMCGUIApi.core.itemGUI.ItemStackBuilder;
 import ariolmc.aMCGUIApi.core.itemGUI.itemGUIFactory.DecorItemGUIFactory;
 import ariolmc.aMCGUIApi.core.itemGUI.itemGUIFactory.ItemGUIFactory;
 import ariolmc.aMCGUIApi.core.menu.namedInventory.factory.GUINamedInvFactory;
@@ -11,6 +13,7 @@ import ariolmc.aMCGUIApi.core.menu.someMenu.BaseMenu;
 import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 
 public class Test2MenuFactory implements MenuFactory{
 
@@ -21,13 +24,12 @@ public class Test2MenuFactory implements MenuFactory{
 
         MenuServices services = AMCGUIApi.getInstance().getMenuServices();
 
-        ItemGUIFactory guiFactory = new DecorItemGUIFactory(Component.text("§0Test"), Material.DRAGON_EGG);
+        ItemStack itemStack = new ItemStackBuilder(Material.DRAGON_EGG).name(Component.text("§0TEST")).build();
+        ItemGUIFactory guiFactory = new DecorItemGUIFactory(itemStack);
         ItemGUI itemGUI = guiFactory.create();
+        itemGUI.addAction(new RenameAction());
 
         services.setItemGUI(menu, 0, itemGUI);
-        services.setItemGUI(menu, 9, itemGUI);
-        services.setItemGUI(menu, 8, itemGUI);
-        services.setItemGUI(menu, 17, itemGUI);
 
         return menu;
     }

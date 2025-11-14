@@ -20,10 +20,10 @@ public class MenuRegistry {
         menu.orElseThrow(()->new NotFoundMenuViewer(playerId));
 
         playerMenus.remove(playerId);
-        removeViewerFromMenuViewers(playerId, menu.get());
+        removeViewer(playerId, menu.get());
     }
 
-    private void removeViewerFromMenuViewers(UUID playerId, Menu menu){
+    private void removeViewer(UUID playerId, Menu menu){
         Set<UUID> viewers = getViewers(menu);
         viewers.remove(playerId);
         if(viewers.isEmpty()) menuViewers.remove(menu);

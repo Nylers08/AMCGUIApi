@@ -14,9 +14,9 @@ public abstract class AbstractItemGUIFactory implements ItemGUIFactory {
     protected final List<Action> actions;
     protected String id;
 
-    public AbstractItemGUIFactory(ItemStack item){
+    public AbstractItemGUIFactory(ItemStack item, List<Action> actions){
         this.item = item;
-        actions = buildActions();
+        this.actions = actions;
     }
 
 
@@ -26,8 +26,6 @@ public abstract class AbstractItemGUIFactory implements ItemGUIFactory {
         return new ItemGUI(id, new ItemStack(item), new ArrayList<>(actions));
     }
 
-
-    protected abstract List<Action> buildActions();
 
     protected void generateId(){
         id = ItemIdUtils.generateId();

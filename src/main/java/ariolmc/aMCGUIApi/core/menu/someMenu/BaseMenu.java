@@ -1,5 +1,6 @@
 package ariolmc.aMCGUIApi.core.menu.someMenu;
 
+import ariolmc.aMCGUIApi.AMCGUIApi;
 import ariolmc.aMCGUIApi.core.menu.namedInventory.NamedInventory;
 import ariolmc.aMCGUIApi.core.menu.namedInventory.factory.NamedInventoryFactory;
 import lombok.Getter;
@@ -22,6 +23,5 @@ public class BaseMenu implements Menu {
     public @NotNull Inventory getInventory() {
         return namedInventory.getInventory();
     }
-
 
 }

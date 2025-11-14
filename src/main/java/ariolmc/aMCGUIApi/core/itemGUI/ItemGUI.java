@@ -1,7 +1,9 @@
 package ariolmc.aMCGUIApi.core.itemGUI;
 
 import ariolmc.aMCGUIApi.core.itemGUI.ItemActions.Action;
+import ariolmc.aMCGUIApi.core.itemGUI.utils.ItemRenameUtil;
 import lombok.Getter;
+import net.kyori.adventure.text.Component;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -25,5 +27,10 @@ public class ItemGUI {
 
     public void addAction(Action action){
         actions.add(action);
+    }
+
+
+    public void rename(Component name){
+        ItemRenameUtil.rename(itemStack, name);
     }
 }

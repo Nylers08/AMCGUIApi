@@ -28,6 +28,7 @@ public class MenuOpener {
 
     public void reopen(Menu menu){
         Set<UUID> viewers = registry.getViewers(menu);
+        if(viewers == null || viewers.isEmpty()) return;
         viewers.forEach(v->open(v, menu));
     }
 }
