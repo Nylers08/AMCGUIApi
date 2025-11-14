@@ -15,7 +15,7 @@ public class TestMenuFactory implements MenuFactory{
 
     @Override
     public Menu create() {
-        NamedInventoryFactory inventoryFactory = new GUINamedInvFactory(9, Component.text("§6Test"));
+        NamedInventoryFactory inventoryFactory = new GUINamedInvFactory(27, Component.text("§6Test"));
         BaseMenu menu = new BaseMenu(inventoryFactory);
 
         MenuServices services = AMCGUIApi.getInstance().getMenuServices();
@@ -23,14 +23,7 @@ public class TestMenuFactory implements MenuFactory{
         ItemGUIFactory guiFactory = new DecorBlackPaneItemGUIFactory();
         ItemGUI itemGUI = guiFactory.create();
 
-        services.setItemGUI(menu, 0, itemGUI);
-        services.setItemGUI(menu, 1, itemGUI);
-        services.setItemGUI(menu, 2, itemGUI);
-        services.setItemGUI(menu, 3, itemGUI);
-        services.setItemGUI(menu, 5, itemGUI);
-        services.setItemGUI(menu, 6, itemGUI);
-        services.setItemGUI(menu, 7, itemGUI);
-        services.setItemGUI(menu, 8, itemGUI);
+        services.setItemGUI(menu, itemGUI, 0, 1, 2, 3, 5, 6, 7, 8);
 
         return menu;
     }

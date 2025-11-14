@@ -19,7 +19,7 @@ public class Test2MenuFactory implements MenuFactory{
 
     @Override
     public Menu create() {
-        NamedInventoryFactory inventoryFactory = new GUINamedInvFactory(18, Component.text("§6Test"));
+        NamedInventoryFactory inventoryFactory = new GUINamedInvFactory(27, Component.text("§6Test"));
         BaseMenu menu = new BaseMenu(inventoryFactory);
 
         MenuServices services = AMCGUIApi.getInstance().getMenuServices();
@@ -29,7 +29,7 @@ public class Test2MenuFactory implements MenuFactory{
         ItemGUI itemGUI = guiFactory.create();
         itemGUI.addAction(new RenameAction());
 
-        services.setItemGUI(menu, 0, itemGUI);
+        services.setItemGUI(menu, itemGUI, 0);
 
         return menu;
     }

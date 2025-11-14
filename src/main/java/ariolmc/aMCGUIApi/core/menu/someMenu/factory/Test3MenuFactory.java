@@ -23,7 +23,7 @@ public class Test3MenuFactory implements MenuFactory{
 
     @Override
     public Menu create() {
-        Menu menu = new BaseMenuFactory(9, buildTitle()).create();
+        Menu menu = new BaseMenuFactory(27, buildTitle()).create();
 
         MenuServices services = AMCGUIApi.getInstance().getMenuServices();
 
@@ -40,8 +40,8 @@ public class Test3MenuFactory implements MenuFactory{
         ).create();
 
 
-        services.setItemGUI(menu, 1, itemGUI);
-        services.setItemGUI(menu, 0, gui2);
+        services.setItemGUI(menu, itemGUI, 1);
+        services.setItemGUI(menu, gui2, 0);
 
         return menu;
     }

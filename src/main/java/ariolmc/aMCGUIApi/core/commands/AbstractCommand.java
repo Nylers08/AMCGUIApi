@@ -1,10 +1,12 @@
 package ariolmc.aMCGUIApi.core.commands;
 
 import ariolmc.aMCGUIApi.AMCGUIApi;
+import ariolmc.aMCGUIApi.core.menu.animatedMenu.BaseAnimatedMenu;
+import ariolmc.aMCGUIApi.core.menu.animatedMenu.animationFrame.factory.TestAnimationFrameFactory;
+import ariolmc.aMCGUIApi.core.menu.animatedMenu.animationFrame.factory.TestAnimationFrameFactory1;
 import ariolmc.aMCGUIApi.core.menu.services.MenuServices;
 import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
 import ariolmc.aMCGUIApi.core.menu.someMenu.factory.*;
-import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -30,13 +32,14 @@ public class AbstractCommand implements CommandExecutor {
 
         Player player = (Player) commandSender;
 
-        services.openNewMenu(player.getUniqueId(), new Test4MenuFactory(menu));
+        BaseAnimatedMenu animatedMenu = new BaseAnimatedMenu(new TestAnimationFrameFactory(), services.opener());
+        services.open(player.getUniqueId(), animatedMenu);
 
-        Bukkit.getScheduler().runTaskLater(AMCGUIApi.getInstance(), ()->{
-            Component newTitle = menu.getTitle();
-            newTitle = newTitle.append(Component.text("_кек"));
-            services.rename(menu, newTitle);
-        }, 20L * 3);
+        Bukkit.getScheduler().runTaskTimer(AMCGUIApi.getInstance(), ()->{
+            animatedMenu.tick();
+            if(animatedMenu.isAnimationFinished())
+                animatedMenu.reset();
+        }, 1, 1);
 
         return true;
     }

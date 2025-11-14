@@ -11,12 +11,14 @@ public class MenuItemGUISetter {
 
     private final ItemGUIRegistry itemGUIRegistry;
 
-    public void setItemGUI(Menu menu, int slot, ItemGUI itemGUI){
-        menu.setItem(slot, itemGUI.getItemStack());
+    public void setItemGUI(Menu menu, ItemGUI itemGUI, int... slots){
+        for (int slot : slots){
+            menu.setItem(slot, itemGUI.getItemStack());
+        }
         itemGUIRegistry.register(itemGUI);
     }
 
-    public void setItemGUI(Menu menu, int slot, ItemGUIFactory itemGUIFactory){
-        setItemGUI(menu, slot, itemGUIFactory.create());
+    public void setItemGUI(Menu menu, ItemGUIFactory itemGUIFactory, int... slots){
+        setItemGUI(menu, itemGUIFactory.create(), slots);
     }
 }

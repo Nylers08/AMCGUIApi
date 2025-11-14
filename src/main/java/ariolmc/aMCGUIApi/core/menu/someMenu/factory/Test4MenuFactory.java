@@ -4,7 +4,6 @@ import ariolmc.aMCGUIApi.AMCGUIApi;
 import ariolmc.aMCGUIApi.core.itemGUI.ItemGUI;
 import ariolmc.aMCGUIApi.core.itemGUI.ItemStackBuilder;
 import ariolmc.aMCGUIApi.core.itemGUI.itemGUIFactory.ItemMenuOpenerFactory;
-import ariolmc.aMCGUIApi.core.menu.services.services.MenuOpener;
 import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
@@ -19,7 +18,7 @@ public class Test4MenuFactory implements MenuFactory{
 
     @Override
     public Menu create() {
-        Menu newMenu = new BaseMenuFactory(18, Component.text("TestMenu")).create();
+        Menu newMenu = new BaseMenuFactory(27, Component.text("TestMenu")).create();
 
         ItemGUI menuOpener = new ItemMenuOpenerFactory(
                 new ItemStackBuilder(Material.STONE_BUTTON).name(Component.text("menu")).build(),
@@ -27,7 +26,7 @@ public class Test4MenuFactory implements MenuFactory{
                 AMCGUIApi.getInstance().getMenuServices().opener()
         ).create();
 
-        AMCGUIApi.getInstance().getMenuServices().setItemGUI(newMenu,0, menuOpener);
+        AMCGUIApi.getInstance().getMenuServices().setItemGUI(newMenu,menuOpener, 0);
 
         return newMenu;
     }
