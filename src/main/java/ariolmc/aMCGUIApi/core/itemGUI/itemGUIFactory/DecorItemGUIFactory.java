@@ -2,6 +2,8 @@ package ariolmc.aMCGUIApi.core.itemGUI.itemGUIFactory;
 
 import ariolmc.aMCGUIApi.core.itemGUI.ItemActions.Action;
 import ariolmc.aMCGUIApi.core.itemGUI.ItemActions.CancelInventoryClick;
+import ariolmc.aMCGUIApi.core.itemGUI.utils.ItemRenameUtil;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -24,6 +26,21 @@ public class DecorItemGUIFactory extends AbstractItemGUIFactory {
         super(
                 new ItemStack(material)
         );
+    }
+
+    public DecorItemGUIFactory(Component name, ItemStack item){
+        super(
+                new ItemStack(item)
+        );
+        ItemRenameUtil.rename(this.item, name);
+    }
+
+    public DecorItemGUIFactory(Component name, Material material){
+        this(name, new ItemStack(material));
+    }
+
+    public DecorItemGUIFactory(Component name, Material material, int amount){
+        this(name, new ItemStack(material, amount));
     }
 
 

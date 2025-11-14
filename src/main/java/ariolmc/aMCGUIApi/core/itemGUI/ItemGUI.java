@@ -22,4 +22,8 @@ public class ItemGUI {
     public void execute(InventoryClickEvent event){
         actions.forEach(a -> a.action(event));
     }
+
+    public void addAction(Action action){
+        actions.add(action);
+    }
 }
