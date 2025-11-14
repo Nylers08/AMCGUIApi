@@ -1,6 +1,7 @@
 package ariolmc.aMCGUIApi.core.menu.services.services;
 
 import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
+import ariolmc.aMCGUIApi.core.menu.someMenu.factory.MenuFactory;
 import ariolmc.aMCGUIApi.infrastructure.inventoryOpener.InventoryOpener;
 
 import java.util.Set;
@@ -19,6 +20,10 @@ public class MenuOpener {
     public void open(UUID playerId, Menu menu){
         inventoryOpener.open(playerId, menu.getInventory());
         registry.register(playerId, menu);
+    }
+
+    public void openNewMenu(UUID playerId, MenuFactory factory){
+        open(playerId, factory.create());
     }
 
     public void reopen(Menu menu){
