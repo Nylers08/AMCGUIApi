@@ -1,11 +1,8 @@
-package ariolmc.aMCGUIApi.core.menu.someMenu;
+package ariolmc.aMCGUIApi.core.menu.someMenu.fabric;
 
-import ariolmc.aMCGUIApi.core.itemGUI.ItemGUI;
-import ariolmc.aMCGUIApi.core.itemGUI.itemGUIFabric.ItemGUIFabric;
-import ariolmc.aMCGUIApi.core.itemGUI.services.ItemGUIFabricRegistrar;
-import ariolmc.aMCGUIApi.core.itemGUI.services.ItemGUIRegistry;
 import ariolmc.aMCGUIApi.core.menu.namedInventory.NamedInventory;
 import ariolmc.aMCGUIApi.core.menu.namedInventory.fabric.NamedInventoryFabric;
+import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
 import org.bukkit.inventory.Inventory;

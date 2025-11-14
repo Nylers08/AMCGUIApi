@@ -1,7 +1,7 @@
 package ariolmc.aMCGUIApi.core.menu.someMenu;
 
-import ariolmc.aMCGUIApi.core.itemGUI.services.ItemGUIRegistry;
 import ariolmc.aMCGUIApi.core.menu.namedInventory.fabric.NamedInventoryFabric;
+import ariolmc.aMCGUIApi.core.menu.someMenu.fabric.BaseMenu;
 import org.bukkit.inventory.Inventory;
 
 import java.util.List;
