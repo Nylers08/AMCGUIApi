@@ -7,9 +7,12 @@ import org.bukkit.inventory.ItemStack;
 
 public interface Menu extends InventoryHolder {
 
-    Component getName();
+    Component getTitle();
     void rename(Component title);
     void setItem(int slot, ItemStack item);
     ItemStack getItem(int slot);
     NamedInventory getNamedInventory();
+
+    boolean isAllowItemMovement();
+    void setAllowItemMovement(boolean value);
 }

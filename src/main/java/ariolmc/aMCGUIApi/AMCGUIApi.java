@@ -3,6 +3,7 @@ package ariolmc.aMCGUIApi;
 import ariolmc.aMCGUIApi.core.commands.AbstractCommand;
 import ariolmc.aMCGUIApi.core.itemGUI.services.ItemGUIRegistry;
 import ariolmc.aMCGUIApi.core.listenersAndEvents.listeners.InventoryClickListener;
+import ariolmc.aMCGUIApi.core.listenersAndEvents.listeners.InventoryCloseListener;
 import ariolmc.aMCGUIApi.core.menu.services.DefaultMenuServicesBuilder;
 import ariolmc.aMCGUIApi.core.menu.services.MenuServices;
 import ariolmc.aMCGUIApi.infrastructure.ApiWrappers;
@@ -51,6 +52,7 @@ public final class AMCGUIApi extends JavaPlugin {
 
     private void initListeners(){
         Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
+        Bukkit.getPluginManager().registerEvents(new InventoryCloseListener(menuServices.registry()), this);
     }
 
     private void initCommands(){
