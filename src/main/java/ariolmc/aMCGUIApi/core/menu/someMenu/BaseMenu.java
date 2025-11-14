@@ -1,8 +1,7 @@
-package ariolmc.aMCGUIApi.core.menu.someMenu.factory;
+package ariolmc.aMCGUIApi.core.menu.someMenu;
 
 import ariolmc.aMCGUIApi.core.menu.namedInventory.NamedInventory;
 import ariolmc.aMCGUIApi.core.menu.namedInventory.factory.NamedInventoryFactory;
-import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
 import org.bukkit.inventory.Inventory;

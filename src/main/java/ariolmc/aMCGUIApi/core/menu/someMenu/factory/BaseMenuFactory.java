@@ -1,6 +1,7 @@
 package ariolmc.aMCGUIApi.core.menu.someMenu.factory;
 
 import ariolmc.aMCGUIApi.core.menu.namedInventory.factory.GUINamedInvFactory;
+import ariolmc.aMCGUIApi.core.menu.someMenu.BaseMenu;
 import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
 import net.kyori.adventure.text.Component;
 

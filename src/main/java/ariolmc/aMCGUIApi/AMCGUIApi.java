@@ -1,7 +1,6 @@
 package ariolmc.aMCGUIApi;
 
 import ariolmc.aMCGUIApi.core.commands.AbstractCommand;
-import ariolmc.aMCGUIApi.core.itemGUI.services.ItemGUIFactoryRegistrar;
 import ariolmc.aMCGUIApi.core.itemGUI.services.ItemGUIRegistry;
 import ariolmc.aMCGUIApi.core.listenersAndEvents.listeners.InventoryClickListener;
 import ariolmc.aMCGUIApi.core.menu.services.DefaultMenuServicesBuilder;
