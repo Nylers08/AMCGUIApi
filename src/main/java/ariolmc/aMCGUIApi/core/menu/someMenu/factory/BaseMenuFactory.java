@@ -1,6 +1,6 @@
-package ariolmc.aMCGUIApi.core.menu.someMenu.fabric;
+package ariolmc.aMCGUIApi.core.menu.someMenu.factory;
 
-import ariolmc.aMCGUIApi.core.menu.namedInventory.fabric.GUINamedInvFabric;
+import ariolmc.aMCGUIApi.core.menu.namedInventory.factory.GUINamedInvFactory;
 import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
 import net.kyori.adventure.text.Component;
 
@@ -16,6 +16,6 @@ public class BaseMenuFactory implements MenuFactory{
 
     @Override
     public Menu create() {
-        return new BaseMenu(new GUINamedInvFabric(size, title));
+        return new BaseMenu(new GUINamedInvFactory(size, title));
     }
 }

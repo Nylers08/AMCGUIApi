@@ -1,4 +1,4 @@
-package ariolmc.aMCGUIApi.infrastructure.inventoryFabric;
+package ariolmc.aMCGUIApi.infrastructure.inventoryFactory;
 
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;

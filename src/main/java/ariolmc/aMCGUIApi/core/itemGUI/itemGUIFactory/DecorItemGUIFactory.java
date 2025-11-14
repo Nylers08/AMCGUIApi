@@ -1,4 +1,4 @@
-package ariolmc.aMCGUIApi.core.itemGUI.itemGUIFabric;
+package ariolmc.aMCGUIApi.core.itemGUI.itemGUIFactory;
 
 import ariolmc.aMCGUIApi.core.itemGUI.ItemActions.Action;
 import ariolmc.aMCGUIApi.core.itemGUI.ItemActions.CancelInventoryClick;
@@ -8,19 +8,19 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DecorItemFabric extends AbstractItemFabric{
+public class DecorItemGUIFactory extends AbstractItemGUIFactory {
 
-    public DecorItemFabric(ItemStack item){
+    public DecorItemGUIFactory(ItemStack item){
         super(item);
     }
 
-    public DecorItemFabric(Material material, int amount){
+    public DecorItemGUIFactory(Material material, int amount){
         super(
                 new ItemStack(material, amount)
         );
     }
 
-    public DecorItemFabric(Material material){
+    public DecorItemGUIFactory(Material material){
         super(
                 new ItemStack(material)
         );

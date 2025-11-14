@@ -1,13 +1,11 @@
 package ariolmc.aMCGUIApi;
 
 import ariolmc.aMCGUIApi.core.commands.AbstractCommand;
-import ariolmc.aMCGUIApi.core.itemGUI.services.ItemGUIFabricRegistrar;
+import ariolmc.aMCGUIApi.core.itemGUI.services.ItemGUIFactoryRegistrar;
 import ariolmc.aMCGUIApi.core.itemGUI.services.ItemGUIRegistry;
 import ariolmc.aMCGUIApi.core.listenersAndEvents.listeners.InventoryClickListener;
 import ariolmc.aMCGUIApi.core.menu.services.DefaultMenuServicesBuilder;
 import ariolmc.aMCGUIApi.core.menu.services.MenuServices;
-import ariolmc.aMCGUIApi.core.menu.services.services.MenuOpener;
-import ariolmc.aMCGUIApi.core.menu.services.services.MenuRegistry;
 import ariolmc.aMCGUIApi.infrastructure.ApiWrappers;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -24,7 +22,6 @@ public final class AMCGUIApi extends JavaPlugin {
     @Getter private MenuServices menuServices;
 
     @Getter private ItemGUIRegistry itemGUIRegistry;
-    @Getter private ItemGUIFabricRegistrar itemGUIFabricRegistrar;
 
 
     @Override
@@ -46,7 +43,6 @@ public final class AMCGUIApi extends JavaPlugin {
 
     private void initItemGUIServices(){
         itemGUIRegistry = new ItemGUIRegistry();
-        itemGUIFabricRegistrar = new ItemGUIFabricRegistrar(itemGUIRegistry);
     }
 
     private void initMenuServices(){

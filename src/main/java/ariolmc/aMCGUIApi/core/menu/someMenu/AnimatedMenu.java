@@ -1,7 +1,7 @@
 package ariolmc.aMCGUIApi.core.menu.someMenu;
 
-import ariolmc.aMCGUIApi.core.menu.namedInventory.fabric.NamedInventoryFabric;
-import ariolmc.aMCGUIApi.core.menu.someMenu.fabric.BaseMenu;
+import ariolmc.aMCGUIApi.core.menu.namedInventory.factory.NamedInventoryFactory;
+import ariolmc.aMCGUIApi.core.menu.someMenu.factory.BaseMenu;
 import org.bukkit.inventory.Inventory;
 
 import java.util.List;
@@ -12,8 +12,8 @@ public class AnimatedMenu extends BaseMenu {
     private int currentFrameIndex = 0;
     private double secondsBetweenFrame = 1;
 
-    public AnimatedMenu(NamedInventoryFabric fabric, List<Inventory> frames) {
-        super(fabric);
+    public AnimatedMenu(NamedInventoryFactory factory, List<Inventory> frames) {
+        super(factory);
         this.frames = frames;
     }
 

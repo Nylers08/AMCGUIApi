@@ -1,7 +1,7 @@
-package ariolmc.aMCGUIApi.core.menu.someMenu.fabric;
+package ariolmc.aMCGUIApi.core.menu.someMenu.factory;
 
 import ariolmc.aMCGUIApi.core.menu.namedInventory.NamedInventory;
-import ariolmc.aMCGUIApi.core.menu.namedInventory.fabric.NamedInventoryFabric;
+import ariolmc.aMCGUIApi.core.menu.namedInventory.factory.NamedInventoryFactory;
 import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
@@ -13,8 +13,8 @@ public class BaseMenu implements Menu {
 
     @Getter protected NamedInventory namedInventory;
 
-    public BaseMenu(NamedInventoryFabric fabric){
-        this.namedInventory = fabric.create(this);
+    public BaseMenu(NamedInventoryFactory factory){
+        this.namedInventory = factory.create(this);
     }
 
     @Override

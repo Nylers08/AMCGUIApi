@@ -1,6 +1,6 @@
 package ariolmc.aMCGUIApi.core.menu.utils;
 
-import ariolmc.aMCGUIApi.infrastructure.inventoryFabric.InventoryCreator;
+import ariolmc.aMCGUIApi.infrastructure.inventoryFactory.InventoryCreator;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
