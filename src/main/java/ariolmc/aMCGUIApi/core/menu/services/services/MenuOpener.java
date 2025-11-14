@@ -1,6 +1,5 @@
-package ariolmc.aMCGUIApi.core.menu.services;
+package ariolmc.aMCGUIApi.core.menu.services.services;
 
-import ariolmc.aMCGUIApi.core.menu.someMenu.BaseMenu;
 import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
 import ariolmc.aMCGUIApi.infrastructure.inventoryOpener.InventoryOpener;
 

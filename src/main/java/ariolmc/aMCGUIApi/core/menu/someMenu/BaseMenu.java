@@ -15,11 +15,9 @@ import org.jetbrains.annotations.NotNull;
 public class BaseMenu implements Menu {
 
     @Getter protected NamedInventory namedInventory;
-    @Getter private ItemGUIRegistry itemRegistry;
 
-    public BaseMenu(NamedInventoryFabric fabric, ItemGUIRegistry itemRegistry){
+    public BaseMenu(NamedInventoryFabric fabric){
         this.namedInventory = fabric.create(this);
-        this.itemRegistry = itemRegistry;
     }
 
     @Override
@@ -33,10 +31,8 @@ public class BaseMenu implements Menu {
     }
 
     @Override
-    public void setItemGUI(int slot, ItemGUIFabric fabric){
-        ItemGUI itemGUI = fabric.create();
-        itemRegistry.register(itemGUI);
-        namedInventory.setItem(slot, itemGUI.getItemStack());
+    public void setItem(int slot, ItemStack item){
+        namedInventory.setItem(slot, item);
     }
 
     @Override

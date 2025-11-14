@@ -12,8 +12,8 @@ public class AnimatedMenu extends BaseMenu {
     private int currentFrameIndex = 0;
     private double secondsBetweenFrame = 1;
 
-    public AnimatedMenu(NamedInventoryFabric fabric, ItemGUIRegistry registry, List<Inventory> frames) {
-        super(fabric, registry);
+    public AnimatedMenu(NamedInventoryFabric fabric, List<Inventory> frames) {
+        super(fabric);
         this.frames = frames;
     }
 

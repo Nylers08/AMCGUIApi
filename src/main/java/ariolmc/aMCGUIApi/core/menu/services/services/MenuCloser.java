@@ -1,4 +1,4 @@
-package ariolmc.aMCGUIApi.core.menu.services;
+package ariolmc.aMCGUIApi.core.menu.services.services;
 
 import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
 import ariolmc.aMCGUIApi.infrastructure.inventoryCloser.InventoryCloser;
@@ -8,12 +8,12 @@ import java.util.UUID;
 
 public class MenuCloser {
 
-    private final InventoryCloser closer;
     private final MenuRegistry registry;
+    private final InventoryCloser closer;
 
-    public MenuCloser(InventoryCloser closer, MenuRegistry registry){
-        this.closer = closer;
+    public MenuCloser(MenuRegistry registry, InventoryCloser closer){
         this.registry = registry;
+        this.closer = closer;
     }
 
     public void close(UUID playerId){

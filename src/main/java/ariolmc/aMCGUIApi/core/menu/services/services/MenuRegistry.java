@@ -1,4 +1,4 @@
-package ariolmc.aMCGUIApi.core.menu.services;
+package ariolmc.aMCGUIApi.core.menu.services.services;
 
 import ariolmc.aMCGUIApi.core.menu.services.exceptions.NotFoundMenuViewer;
 import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;

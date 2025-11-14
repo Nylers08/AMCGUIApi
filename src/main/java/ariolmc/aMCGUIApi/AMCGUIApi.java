@@ -4,8 +4,10 @@ import ariolmc.aMCGUIApi.core.commands.AbstractCommand;
 import ariolmc.aMCGUIApi.core.itemGUI.services.ItemGUIFabricRegistrar;
 import ariolmc.aMCGUIApi.core.itemGUI.services.ItemGUIRegistry;
 import ariolmc.aMCGUIApi.core.listenersAndEvents.listeners.InventoryClickListener;
-import ariolmc.aMCGUIApi.core.menu.services.MenuOpener;
-import ariolmc.aMCGUIApi.core.menu.services.MenuRegistry;
+import ariolmc.aMCGUIApi.core.menu.services.DefaultMenuServicesBuilder;
+import ariolmc.aMCGUIApi.core.menu.services.MenuServices;
+import ariolmc.aMCGUIApi.core.menu.services.services.MenuOpener;
+import ariolmc.aMCGUIApi.core.menu.services.services.MenuRegistry;
 import ariolmc.aMCGUIApi.infrastructure.ApiWrappers;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -19,8 +21,7 @@ public final class AMCGUIApi extends JavaPlugin {
 
     @Getter private ApiWrappers apiWrappers;
 
-    @Getter private MenuRegistry menuRegistry;
-    @Getter private MenuOpener menuOpener;
+    @Getter private MenuServices menuServices;
 
     @Getter private ItemGUIRegistry itemGUIRegistry;
     @Getter private ItemGUIFabricRegistrar itemGUIFabricRegistrar;
@@ -32,8 +33,8 @@ public final class AMCGUIApi extends JavaPlugin {
         instance = this;
 
         initApiWrappers();
-        initMenuServices();
         initItemGUIServices();
+        initMenuServices();
 
         initListeners();
         initCommands();
@@ -43,14 +44,13 @@ public final class AMCGUIApi extends JavaPlugin {
         apiWrappers = new ApiWrappers();
     }
 
-    private void initMenuServices(){
-        menuRegistry = new MenuRegistry();
-        menuOpener = new MenuOpener(menuRegistry, apiWrappers.getInventoryOpener());
-    }
-
     private void initItemGUIServices(){
         itemGUIRegistry = new ItemGUIRegistry();
         itemGUIFabricRegistrar = new ItemGUIFabricRegistrar(itemGUIRegistry);
+    }
+
+    private void initMenuServices(){
+        menuServices = DefaultMenuServicesBuilder.build(itemGUIRegistry);
     }
 
 
