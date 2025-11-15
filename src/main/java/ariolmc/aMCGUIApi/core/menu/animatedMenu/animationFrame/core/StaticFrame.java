@@ -1,21 +1,22 @@
 package ariolmc.aMCGUIApi.core.menu.animatedMenu.animationFrame.core;
 
 import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
+import lombok.Getter;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 public class StaticFrame implements AnimationFrame {
 
     private final Menu frame;
-    private final long duration;
-    private long passed;
+    @Getter private final long duration;
+    @Getter private long passedTick;
     boolean isAnimationFinished;
-    private final Sound sound;
+    @Getter private final Sound sound;
 
     public StaticFrame(Menu frame, long duration, Sound sound){
         this.frame = frame;
         this.duration = duration;
-        passed = 0;
+        passedTick = 0;
         this.sound = sound;
     }
 
@@ -44,13 +45,13 @@ public class StaticFrame implements AnimationFrame {
 
     @Override
     public void reset() {
-        passed = 0;
+        passedTick = 0;
         isAnimationFinished = false;
     }
 
 
     private void playSoundForViewers(){
-        if(sound != null && passed == 1){
+        if(sound != null && passedTick == 1){
             frame.getInventory().getViewers().forEach(h->{
                 if(h instanceof Player p){
                     p.playSound(p.getLocation(), sound, 1 ,1);
@@ -60,9 +61,9 @@ public class StaticFrame implements AnimationFrame {
     }
 
     private void tickTime(){
-        passed++;
+        passedTick++;
 
-        if((duration>=0) && (passed > duration)) {
+        if((duration>=0) && (passedTick > duration)) {
             isAnimationFinished = true;
         }
     }
