@@ -1,7 +1,7 @@
-package ariolmc.aMCGUIApi.core.menu.namedInventory.factory;
+package ariolmc.aMCGUIApi.core.namedInventory.factory;
 
-import ariolmc.aMCGUIApi.core.menu.namedInventory.GUINamedInventory;
-import ariolmc.aMCGUIApi.core.menu.namedInventory.NamedInventory;
+import ariolmc.aMCGUIApi.core.namedInventory.GUINamedInventory;
+import ariolmc.aMCGUIApi.core.namedInventory.NamedInventory;
 import ariolmc.aMCGUIApi.infrastructure.inventoryFactory.BukkitInventoryCreator;
 import ariolmc.aMCGUIApi.infrastructure.inventoryFactory.InventoryCreator;
 import net.kyori.adventure.text.Component;

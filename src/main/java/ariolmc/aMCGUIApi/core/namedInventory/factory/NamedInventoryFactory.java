@@ -1,6 +1,6 @@
-package ariolmc.aMCGUIApi.core.menu.namedInventory.factory;
+package ariolmc.aMCGUIApi.core.namedInventory.factory;
 
-import ariolmc.aMCGUIApi.core.menu.namedInventory.NamedInventory;
+import ariolmc.aMCGUIApi.core.namedInventory.NamedInventory;
 import org.bukkit.inventory.InventoryHolder;
 
 public interface NamedInventoryFactory {

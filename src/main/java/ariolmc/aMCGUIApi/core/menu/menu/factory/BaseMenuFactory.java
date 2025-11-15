@@ -1,8 +1,8 @@
-package ariolmc.aMCGUIApi.core.menu.someMenu.factory;
+package ariolmc.aMCGUIApi.core.menu.menu.factory;
 
-import ariolmc.aMCGUIApi.core.menu.namedInventory.factory.GUINamedInvFactory;
-import ariolmc.aMCGUIApi.core.menu.someMenu.BaseMenu;
-import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
+import ariolmc.aMCGUIApi.core.namedInventory.factory.GUINamedInvFactory;
+import ariolmc.aMCGUIApi.core.menu.menu.BaseMenu;
+import ariolmc.aMCGUIApi.core.menu.menu.Menu;
 import net.kyori.adventure.text.Component;
 
 public class BaseMenuFactory implements MenuFactory{

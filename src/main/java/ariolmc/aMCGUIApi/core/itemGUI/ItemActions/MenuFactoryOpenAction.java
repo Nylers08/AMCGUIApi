@@ -1,7 +1,7 @@
 package ariolmc.aMCGUIApi.core.itemGUI.ItemActions;
 
 import ariolmc.aMCGUIApi.core.menu.services.services.MenuOpener;
-import ariolmc.aMCGUIApi.core.menu.someMenu.factory.MenuFactory;
+import ariolmc.aMCGUIApi.core.menu.menu.factory.MenuFactory;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 import java.util.UUID;

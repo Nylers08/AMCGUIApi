@@ -1,6 +1,6 @@
-package ariolmc.aMCGUIApi.core.menu.someMenu;
+package ariolmc.aMCGUIApi.core.menu.menu;
 
-import ariolmc.aMCGUIApi.core.menu.namedInventory.NamedInventory;
+import ariolmc.aMCGUIApi.core.namedInventory.NamedInventory;
 import net.kyori.adventure.text.Component;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;

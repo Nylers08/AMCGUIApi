@@ -1,7 +1,7 @@
 package ariolmc.aMCGUIApi.core.listenersAndEvents.listeners;
 
 import ariolmc.aMCGUIApi.core.menu.services.services.MenuRegistry;
-import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
+import ariolmc.aMCGUIApi.core.menu.menu.Menu;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;

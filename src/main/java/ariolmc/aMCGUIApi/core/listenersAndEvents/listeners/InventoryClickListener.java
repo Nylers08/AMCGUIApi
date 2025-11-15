@@ -3,12 +3,10 @@ package ariolmc.aMCGUIApi.core.listenersAndEvents.listeners;
 import ariolmc.aMCGUIApi.AMCGUIApi;
 import ariolmc.aMCGUIApi.core.itemGUI.services.ItemGUIRegistry;
 import ariolmc.aMCGUIApi.core.itemGUI.utils.ItemIdUtils;
-import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
+import ariolmc.aMCGUIApi.core.menu.menu.Menu;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryInteractEvent;
-import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 

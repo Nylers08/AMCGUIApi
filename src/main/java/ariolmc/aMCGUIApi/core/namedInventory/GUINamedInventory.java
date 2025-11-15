@@ -1,4 +1,4 @@
-package ariolmc.aMCGUIApi.core.menu.namedInventory;
+package ariolmc.aMCGUIApi.core.namedInventory;
 
 import ariolmc.aMCGUIApi.core.menu.utils.InventoryUtils;
 import ariolmc.aMCGUIApi.infrastructure.inventoryFactory.InventoryCreator;

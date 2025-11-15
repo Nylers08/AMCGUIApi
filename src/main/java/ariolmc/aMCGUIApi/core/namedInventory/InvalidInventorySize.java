@@ -1,4 +1,4 @@
-package ariolmc.aMCGUIApi.core.menu.namedInventory;
+package ariolmc.aMCGUIApi.core.namedInventory;
 
 import net.kyori.adventure.text.Component;
 

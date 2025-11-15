@@ -1,6 +1,6 @@
 package ariolmc.aMCGUIApi.core.menu.animatedMenu.animationFrame.core;
 
-import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
+import ariolmc.aMCGUIApi.core.menu.menu.Menu;
 import lombok.Getter;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
