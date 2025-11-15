@@ -40,4 +40,8 @@ public class MenuRegistry {
     public boolean hasViewer(UUID playerId){
         return playerMenus.containsKey(playerId);
     }
+
+    public Set<Menu> getAllOpenMenus(){
+        return menuViewers.keySet();
+    }
 }

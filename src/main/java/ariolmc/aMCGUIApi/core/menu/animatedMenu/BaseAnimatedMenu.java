@@ -68,10 +68,14 @@ public class BaseAnimatedMenu implements AnimatedMenu {
     public void tick() {
         lastFrame = getCurrentMenu();
         animatedFrame.tick();
-        showFrame();
+
+        if(isAnimationFinished())
+            return;
+
+        showCurrentFrame();
     }
 
-    private void showFrame(){
+    private void showCurrentFrame(){
         if(hasFrameChanged()){
             menuOpener.reopen(this);
             AMCGUIApi.getInstance().getLogger().info("Показали новое меню");

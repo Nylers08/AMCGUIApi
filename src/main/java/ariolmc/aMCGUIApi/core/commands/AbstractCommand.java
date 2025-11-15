@@ -1,6 +1,8 @@
 package ariolmc.aMCGUIApi.core.commands;
 
 import ariolmc.aMCGUIApi.AMCGUIApi;
+import ariolmc.aMCGUIApi.core.menu.animatedMenu.AnimatedMenu;
+import ariolmc.aMCGUIApi.core.menu.animatedMenu.animationFrame.TestAnimatedMenu;
 import ariolmc.aMCGUIApi.core.menu.services.MenuServices;
 import ariolmc.aMCGUIApi.core.menu.menu.Menu;
 import org.bukkit.command.Command;
@@ -24,6 +26,8 @@ public class AbstractCommand implements CommandExecutor {
 
         Player player = (Player) commandSender;
 
+        AnimatedMenu animatedMenu = new TestAnimatedMenu();
+        services.open(player.getUniqueId(), animatedMenu);
 
         return true;
     }
