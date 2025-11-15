@@ -1,10 +1,10 @@
 package ariolmc.aMCGUIApi.core.commands;
 
 import ariolmc.aMCGUIApi.AMCGUIApi;
-import ariolmc.aMCGUIApi.core.menu.animatedMenu.BaseAnimatedMenu;
+import ariolmc.aMCGUIApi.core.menu.animatedMenu.AnimatedMenu;
+import ariolmc.aMCGUIApi.core.menu.animatedMenu.animationFrame.TestAnimatedMenu1;
 import ariolmc.aMCGUIApi.core.menu.services.MenuServices;
 import ariolmc.aMCGUIApi.core.menu.someMenu.Menu;
-import ariolmc.aMCGUIApi.core.menu.someMenu.factory.*;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -27,7 +27,10 @@ public class AbstractCommand implements CommandExecutor {
 
         Player player = (Player) commandSender;
 
+        AnimatedMenu animatedMenu = new TestAnimatedMenu1();
+        services.open(player.getUniqueId(), animatedMenu);
 
+        Bukkit.getScheduler().runTaskTimer(AMCGUIApi.getInstance(), animatedMenu::tick, 1, 1);
 
         return true;
     }

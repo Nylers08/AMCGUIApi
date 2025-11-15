@@ -1,6 +1,6 @@
 package ariolmc.aMCGUIApi.core.menu.animatedMenu;
 
-import ariolmc.aMCGUIApi.core.menu.animatedMenu.animationFrame.AnimatedMenu;
+import ariolmc.aMCGUIApi.AMCGUIApi;
 import ariolmc.aMCGUIApi.core.menu.animatedMenu.animationFrame.core.AnimationFrame;
 import ariolmc.aMCGUIApi.core.menu.animatedMenu.animationFrame.factory.AnimationFrameFactory;
 import ariolmc.aMCGUIApi.core.menu.namedInventory.NamedInventory;
@@ -74,6 +74,7 @@ public class BaseAnimatedMenu implements AnimatedMenu {
     private void showFrame(){
         if(hasFrameChanged()){
             menuOpener.reopen(this);
+            AMCGUIApi.getInstance().getLogger().info("Показали новое меню");
         }
     }
 

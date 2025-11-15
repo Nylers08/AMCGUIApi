@@ -8,28 +8,26 @@ public class FactoryFrame implements AnimationFrame{
 
     private StaticFrame frame;
     private final MenuFactory menuFactory;
+    private final long duration;
+    private final Sound sound;
 
     public FactoryFrame(MenuFactory menuFactory, long duration, Sound sound){
         this.menuFactory = menuFactory;
-        frame = new StaticFrame(
-                menuFactory.create(),
-                duration,
-                sound
-        );
+        this.duration = duration;
+        this.sound = sound;
+        generateNewFrame();
     }
 
     public FactoryFrame(MenuFactory menuFactory, long duration){
-        this.menuFactory = menuFactory;
-        frame = new StaticFrame(
-                menuFactory.create(),
-                duration
-        );
+        this(menuFactory, duration, null);
     }
 
 
     @Override
     public void tick() {
-
+        frame.tick();
+        if(isAnimationFinished())
+            generateNewFrame();
     }
 
     @Override
@@ -47,9 +45,7 @@ public class FactoryFrame implements AnimationFrame{
         frame.reset();
     }
 
-    private void generateFrameIfFirstTick(){
-        if(frame.getPassedTick() == 0){
-            frame = new StaticFrame(menuFactory.create(), frame.getDuration(), frame.getSound());
-        }
+    private void generateNewFrame(){
+        frame = new StaticFrame(menuFactory.create(), duration, sound);
     }
 }
