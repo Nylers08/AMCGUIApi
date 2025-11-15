@@ -17,6 +17,6 @@ public class AnimatedFrameFactory1 implements AnimationFrameFactory{
         StaticFrame staticFrame1 = new StaticFrame(new TestMenuFactory1().create(), 10, Sound.BLOCK_IRON_BREAK);
         StaticFrame staticFrame2 = new StaticFrame(new TestMenuFactory2().create(), 10, Sound.BLOCK_ANVIL_DESTROY);
 
-        return new AnimatedFrame(List.of(staticFrame1, staticFrame2));
+        return new AnimatedFrame(List.of(staticFrame1, staticFrame2), -1);
     }
 }

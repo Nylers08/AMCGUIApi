@@ -10,10 +10,19 @@ public class AnimatedFrame implements AnimationFrame {
     private final List<AnimationFrame> frames;
     private int currentFrameIndex;
 
-    public AnimatedFrame(List<AnimationFrame> frames){
+    private final int repeatCount;
+    private int repeatDone = 0;
+
+    public AnimatedFrame(List<AnimationFrame> frames, int repeatCount){
         this.frames = frames;
         currentFrameIndex = 0;
+        this.repeatCount = repeatCount;
     }
+
+    public AnimatedFrame(List<AnimationFrame> frames){
+        this(frames, 1);
+    }
+
 
     @Override
     public void tick() {
@@ -21,10 +30,7 @@ public class AnimatedFrame implements AnimationFrame {
             return;
 
         tickCurrentFrame();
-
-        if(frames.get(currentFrameIndex).isAnimationFinished()) {
-            nextFrameIndex();
-        }
+        stepIfFinished();
     }
 
     @Override
@@ -34,27 +40,55 @@ public class AnimatedFrame implements AnimationFrame {
 
     @Override
     public Menu getCurrentMenu() {
-        return frames.get(currentFrameIndex).getCurrentMenu();
+        return getCurrentFrame().getCurrentMenu();
     }
 
     @Override
     public void reset() {
         currentFrameIndex = 0;
         isAnimationFinished = false;
+        framesReset();
+        repeatDone = 0;
+    }
+
+    private void framesReset(){
         frames.forEach(AnimationFrame::reset);
     }
 
 
-    private void tickCurrentFrame(){
-        AnimationFrame frame = frames.get(currentFrameIndex);
-        frame.tick();
+    public AnimationFrame getCurrentFrame(){
+        return frames.get(currentFrameIndex);
     }
 
-    private void nextFrameIndex(){
+
+    private void tickCurrentFrame(){
+        getCurrentFrame().tick();
+    }
+
+    private void stepIfFinished(){
+        if(getCurrentFrame().isAnimationFinished()) {
+            frameStep();
+        }
+    }
+
+    private void frameStep(){
         currentFrameIndex++;
-        if(currentFrameIndex>=frames.size()){
-            isAnimationFinished = true;
+        if(areFramesFinished()){
             currentFrameIndex = 0;
+            repeatDone++;
+            framesReset();
+            checkRepeatCompletion();
+        }
+    }
+
+    private boolean areFramesFinished(){
+        return currentFrameIndex>=frames.size();
+    }
+
+    private void checkRepeatCompletion(){
+        if(repeatDone == repeatCount) {
+            isAnimationFinished = true;
+            repeatDone = 0;
         }
     }
 }

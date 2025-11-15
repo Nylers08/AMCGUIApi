@@ -51,7 +51,7 @@ public class StaticFrame implements AnimationFrame {
 
 
     private void playSoundForViewers(){
-        if(sound != null && passedTick == 1){
+        if(sound != null && passedTick == 0){
             frame.getInventory().getViewers().forEach(h->{
                 if(h instanceof Player p){
                     p.playSound(p.getLocation(), sound, 1 ,1);
