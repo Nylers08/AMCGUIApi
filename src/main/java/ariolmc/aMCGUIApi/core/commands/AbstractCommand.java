@@ -25,9 +25,6 @@ public class AbstractCommand implements CommandExecutor {
 
         Player player = (Player) commandSender;
 
-        AnimatedMenu animatedMenu = new TestAnimatedMenuFactory().create();
-        services.open(player.getUniqueId(), animatedMenu);
-
         return true;
     }
 }
