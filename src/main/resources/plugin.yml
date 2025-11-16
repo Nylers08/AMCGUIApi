@@ -1,5 +1,5 @@
 name: AMCGUIApi
-version: '1.0-SNAPSHOT'
+version: '0.3-SNAPSHOT'
 main: ariolmc.aMCGUIApi.AMCGUIApi
 api-version: '1.21'
 
