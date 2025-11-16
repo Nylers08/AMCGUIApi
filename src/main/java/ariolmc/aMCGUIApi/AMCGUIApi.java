@@ -1,12 +1,12 @@
 package ariolmc.aMCGUIApi;
 
 import ariolmc.aMCGUIApi.core.commands.AbstractCommand;
-import ariolmc.aMCGUIApi.core.itemGUI.services.ItemGUIRegistry;
-import ariolmc.aMCGUIApi.core.listenersAndEvents.listeners.InventoryClickListener;
-import ariolmc.aMCGUIApi.core.listenersAndEvents.listeners.InventoryCloseListener;
-import ariolmc.aMCGUIApi.core.menu.animatedMenu.AnimationTickGenerator;
-import ariolmc.aMCGUIApi.core.menu.services.DefaultMenuServicesBuilder;
-import ariolmc.aMCGUIApi.core.menu.services.MenuServices;
+import ariolmc.aMCGUIApi.api.itemGUI.services.ItemGUIRegistry;
+import ariolmc.aMCGUIApi.api.listeners.InventoryClickListener;
+import ariolmc.aMCGUIApi.api.listeners.InventoryCloseListener;
+import ariolmc.aMCGUIApi.api.menu.animatedMenu.AnimationTickGenerator;
+import ariolmc.aMCGUIApi.api.menu.services.DefaultMenuServicesBuilder;
+import ariolmc.aMCGUIApi.api.menu.services.MenuServices;
 import ariolmc.aMCGUIApi.infrastructure.ApiWrappers;
 import lombok.Getter;
 import org.bukkit.Bukkit;
