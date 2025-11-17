@@ -19,8 +19,8 @@ public class MenuCloser {
     }
 
     public void close(UUID playerId){
-        closer.closeInventory(playerId);
         registry.unregister(playerId);
+        closer.closeInventory(playerId);
     }
 
     public void closeAbsoluteAllMenu(){
