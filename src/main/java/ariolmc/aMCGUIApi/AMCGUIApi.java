@@ -71,5 +71,13 @@ public final class AMCGUIApi extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+
+        logDisable();
+        menuServices.closeAbsoluteAllMenu();
+    }
+
+    private void logDisable(){
+        getLogger().info("Плагин отключается!");
+        getLogger().info("В целях безопасности от дюпов и т.п, закрываются абсолютно все меню!");
     }
 }
