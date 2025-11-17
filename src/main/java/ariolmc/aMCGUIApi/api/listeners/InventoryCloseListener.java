@@ -1,6 +1,6 @@
 package ariolmc.aMCGUIApi.api.listeners;
 
-import ariolmc.aMCGUIApi.api.menu.services.services.MenuRegistry;
+import ariolmc.aMCGUIApi.api.menu.services.services.menuRegistry.menuRegistry.MenuRegistry;
 import ariolmc.aMCGUIApi.api.menu.menu.Menu;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

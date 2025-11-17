@@ -1,8 +1,8 @@
 package ariolmc.aMCGUIApi.api.itemGUI.ItemActions;
 
-import org.bukkit.event.inventory.InventoryClickEvent;
+import ariolmc.aMCGUIApi.api.events.ItemGUIClickEvent;
 
 @FunctionalInterface
 public interface Action {
-    void action(InventoryClickEvent event);
+    void action(ItemGUIClickEvent event);
 }

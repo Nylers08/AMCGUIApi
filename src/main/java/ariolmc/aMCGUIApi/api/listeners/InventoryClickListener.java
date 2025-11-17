@@ -29,7 +29,7 @@ public class InventoryClickListener implements Listener {
         String id = ItemIdUtils.getIdFromNBT(item);
         if(itemGUIRegistry.hasItemGUI(id)){
             ItemGUI itemGUI = itemGUIRegistry.getItemGUI(id);
-            ItemGUIClickEvent itemGUIClickEvent = new ItemGUIClickEvent(itemGUI);
+            ItemGUIClickEvent itemGUIClickEvent = new ItemGUIClickEvent(event, itemGUI);
             Bukkit.getPluginManager().callEvent(itemGUIClickEvent);
         }
     }

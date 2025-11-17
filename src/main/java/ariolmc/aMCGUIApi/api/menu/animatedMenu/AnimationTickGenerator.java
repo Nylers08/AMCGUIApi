@@ -1,7 +1,7 @@
 package ariolmc.aMCGUIApi.api.menu.animatedMenu;
 
 import ariolmc.aMCGUIApi.api.menu.menu.Menu;
-import ariolmc.aMCGUIApi.api.menu.services.services.MenuRegistry;
+import ariolmc.aMCGUIApi.api.menu.services.services.menuRegistry.menuRegistry.MenuRegistry;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitTask;

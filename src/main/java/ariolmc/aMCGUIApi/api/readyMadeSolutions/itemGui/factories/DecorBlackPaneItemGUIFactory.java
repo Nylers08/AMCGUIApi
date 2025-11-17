@@ -1,4 +1,4 @@
-package ariolmc.aMCGUIApi.api.itemGUI.itemGUIFactory;
+package ariolmc.aMCGUIApi.api.readyMadeSolutions.itemGui.factories;
 
 import ariolmc.aMCGUIApi.api.itemGUI.ItemStackBuilder;
 import net.kyori.adventure.text.Component;

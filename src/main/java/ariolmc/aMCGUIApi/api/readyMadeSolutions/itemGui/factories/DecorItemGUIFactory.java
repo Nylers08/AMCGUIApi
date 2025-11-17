@@ -1,7 +1,8 @@
-package ariolmc.aMCGUIApi.api.itemGUI.itemGUIFactory;
+package ariolmc.aMCGUIApi.api.readyMadeSolutions.itemGui.factories;
 
 import ariolmc.aMCGUIApi.api.itemGUI.ItemActions.Action;
 import ariolmc.aMCGUIApi.api.itemGUI.ItemActions.CancelInventoryClick;
+import ariolmc.aMCGUIApi.api.itemGUI.itemGUIFactory.AbstractItemGUIFactory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;

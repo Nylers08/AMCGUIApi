@@ -1,5 +1,6 @@
 package ariolmc.aMCGUIApi.api.itemGUI;
 
+import ariolmc.aMCGUIApi.api.events.ItemGUIClickEvent;
 import ariolmc.aMCGUIApi.api.itemGUI.ItemActions.Action;
 import ariolmc.aMCGUIApi.api.itemGUI.utils.ItemRenameUtil;
 import lombok.Getter;
@@ -21,7 +22,7 @@ public class ItemGUI {
         this.actions = actions;
     }
 
-    public void execute(InventoryClickEvent event){
+    public void execute(ItemGUIClickEvent event){
         actions.forEach(a -> a.action(event));
     }
 

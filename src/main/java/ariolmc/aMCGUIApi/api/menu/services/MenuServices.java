@@ -1,6 +1,7 @@
 package ariolmc.aMCGUIApi.api.menu.services;
 
 import ariolmc.aMCGUIApi.api.menu.services.services.*;
+import ariolmc.aMCGUIApi.api.menu.services.services.menuRegistry.menuRegistry.MenuRegistry;
 import lombok.experimental.Delegate;
 
 public record MenuServices(

@@ -1,5 +1,6 @@
 package ariolmc.aMCGUIApi.api.itemGUI.services;
 
+import ariolmc.aMCGUIApi.api.events.ItemGUIClickEvent;
 import ariolmc.aMCGUIApi.api.itemGUI.ItemGUI;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
@@ -22,7 +23,7 @@ public class ItemGUIRegistry {
         return itemGUIMap.get(id);
     }
 
-    public void executeItemGUI(String id, InventoryClickEvent event){
+    public void executeItemGUI(String id, ItemGUIClickEvent event){
         if(!hasItemGUI(id)) {
             throw new NotFoundItemGUI(id);
         }

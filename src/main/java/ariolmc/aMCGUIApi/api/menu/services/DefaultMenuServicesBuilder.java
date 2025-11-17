@@ -2,6 +2,9 @@ package ariolmc.aMCGUIApi.api.menu.services;
 
 import ariolmc.aMCGUIApi.api.itemGUI.services.ItemGUIRegistry;
 import ariolmc.aMCGUIApi.api.menu.services.services.*;
+import ariolmc.aMCGUIApi.api.menu.services.services.menuRegistry.DefaultMenuRegistry;
+import ariolmc.aMCGUIApi.api.menu.services.services.menuRegistry.menuRegistry.MenuRegistry;
+import ariolmc.aMCGUIApi.api.menu.services.services.menuRegistry.menuRegistry.MenuRegistryImpl;
 import ariolmc.aMCGUIApi.infrastructure.inventoryCloser.BukkitInventoryCloser;
 import ariolmc.aMCGUIApi.infrastructure.inventoryCloser.InventoryCloser;
 import ariolmc.aMCGUIApi.infrastructure.inventoryOpener.BukkitInventoryOpener;
@@ -13,7 +16,7 @@ public class DefaultMenuServicesBuilder {
 
     public static MenuServices build(ItemGUIRegistry itemGUIRegistry){
 
-        MenuRegistry registry = new MenuRegistry();
+        MenuRegistry registry = new DefaultMenuRegistry();
         PlayerProvider playerProvider = new BukkitPlayerProvider();
         InventoryOpener invOpener = new BukkitInventoryOpener(playerProvider);
         InventoryCloser invCloser = new BukkitInventoryCloser(playerProvider);

@@ -1,5 +1,6 @@
 package ariolmc.aMCGUIApi.api.itemGUI.ItemActions;
 
+import ariolmc.aMCGUIApi.api.events.ItemGUIClickEvent;
 import ariolmc.aMCGUIApi.api.itemGUI.utils.ItemIdUtils;
 import ariolmc.aMCGUIApi.api.itemGUI.utils.ItemRenameUtil;
 import net.kyori.adventure.text.Component;
@@ -11,10 +12,8 @@ public class RenameAction implements Action{
     private int amount = 1;
 
     @Override
-    public void action(InventoryClickEvent event) {
-        ItemStack item = event.getCurrentItem();
-        if(item == null) return;
-        if(!ItemIdUtils.hasIdInNBT(item)) return;
+    public void action(ItemGUIClickEvent event) {
+        ItemStack item = event.getItemGUI().getItemStack();
 
         String name = "Нажали: " + amount++;
         Component compName = Component.text(name);

@@ -2,7 +2,9 @@ package ariolmc.aMCGUIApi.api.menu.services.services;
 
 import ariolmc.aMCGUIApi.api.menu.menu.Menu;
 import ariolmc.aMCGUIApi.api.menu.menu.factory.MenuFactory;
+import ariolmc.aMCGUIApi.api.menu.services.services.menuRegistry.menuRegistry.MenuRegistry;
 import ariolmc.aMCGUIApi.infrastructure.inventoryOpener.InventoryOpener;
+import org.bukkit.plugin.Plugin;
 
 import java.util.Set;
 import java.util.UUID;
@@ -17,18 +19,19 @@ public class MenuOpener {
         this.registry = registry;
     }
 
-    public void open(UUID playerId, Menu menu){
+    public void open(Plugin owner, UUID playerId, Menu menu){
         inventoryOpener.open(playerId, menu.getInventory());
-        registry.register(playerId, menu);
+        registry.register(owner, playerId, menu);
     }
 
-    public void openNewMenu(UUID playerId, MenuFactory factory){
-        open(playerId, factory.create());
+    public void openNewMenu(Plugin owner, UUID playerId, MenuFactory factory){
+        open(owner, playerId, factory.create());
     }
 
     public void reopen(Menu menu){
         Set<UUID> viewers = registry.getViewers(menu);
+        Plugin plugin = registry.getPlugin(menu);
         if(viewers == null || viewers.isEmpty()) return;
-        viewers.forEach(v->open(v, menu));
+        viewers.forEach(v->open(plugin, v, menu));
     }
 }

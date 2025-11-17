@@ -1,11 +1,11 @@
-package ariolmc.aMCGUIApi.api.menu.services.services;
+package ariolmc.aMCGUIApi.api.menu.services.services.menuRegistry.openMenuRegistrty;
 
-import ariolmc.aMCGUIApi.api.menu.services.exceptions.NotFoundMenuViewer;
 import ariolmc.aMCGUIApi.api.menu.menu.Menu;
+import ariolmc.aMCGUIApi.api.menu.services.exceptions.NotFoundMenuViewer;
 
 import java.util.*;
 
-public class MenuRegistry {
+public class OpenMenuRegistryImp implements OpenMenuRegistry{
 
     private final Map<UUID, Menu> playerMenus = new HashMap<>();
     private final Map<Menu, Set<UUID>> menuViewers = new HashMap<>();
@@ -37,11 +37,17 @@ public class MenuRegistry {
         return menuViewers.get(menu);
     }
 
-    public boolean hasViewer(UUID playerId){
+    public boolean existViewer(UUID playerId){
         return playerMenus.containsKey(playerId);
+    }
+
+    @Override
+    public boolean existMenu(Menu menu) {
+        return menuViewers.containsKey(menu);
     }
 
     public Set<Menu> getAllOpenMenus(){
         return menuViewers.keySet();
     }
+
 }
