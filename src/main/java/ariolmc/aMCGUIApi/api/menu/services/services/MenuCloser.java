@@ -24,7 +24,7 @@ public class MenuCloser {
     }
 
     public void closeAbsoluteAllMenu(){
-        Set<Menu> menus = registry.getAllOpenMenus();
+        Set<Menu> menus = Set.copyOf(registry.getAllOpenMenus());
         menus.forEach(this::closeEveryone);
     }
 
@@ -34,7 +34,7 @@ public class MenuCloser {
     }
 
     public void closeEveryone(Menu menu){
-        Set<UUID> viewers = registry.getViewers(menu);
+        Set<UUID> viewers = Set.copyOf(registry.getViewers(menu));
         viewers.forEach(this::close);
     }
 }

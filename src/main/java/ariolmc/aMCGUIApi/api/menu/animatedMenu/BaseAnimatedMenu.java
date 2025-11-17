@@ -78,7 +78,6 @@ public class BaseAnimatedMenu implements AnimatedMenu {
     private void showCurrentFrame(){
         if(hasFrameChanged()){
             menuOpener.reopen(this);
-            AMCGUIApi.getInstance().getLogger().info("Показали новое меню");
         }
     }
 
