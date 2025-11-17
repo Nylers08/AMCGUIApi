@@ -72,6 +72,8 @@ public final class AMCGUIApi extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
 
+        animationTickGenerator.stopGeneration();
+
         logDisable();
         menuServices.closeAbsoluteAllMenu();
     }

@@ -29,7 +29,7 @@ public class MenuOpener {
     }
 
     public void reopen(Menu menu){
-        Set<UUID> viewers = registry.getViewers(menu);
+        Set<UUID> viewers = Set.copyOf(registry.getViewers(menu));
         Plugin plugin = registry.getPlugin(menu);
         if(viewers == null || viewers.isEmpty()) return;
         viewers.forEach(v->open(plugin, v, menu));

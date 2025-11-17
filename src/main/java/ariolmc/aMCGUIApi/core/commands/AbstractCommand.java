@@ -4,6 +4,8 @@ import ariolmc.aMCGUIApi.AMCGUIApi;
 import ariolmc.aMCGUIApi.api.menu.services.MenuServices;
 import ariolmc.aMCGUIApi.api.menu.menu.Menu;
 import ariolmc.aMCGUIApi.api.readyMadeSolutions.menus.TestAnimatedMenuFactory;
+import net.kyori.adventure.text.Component;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,8 +14,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class AbstractCommand implements CommandExecutor {
 
-    Menu menu;
+    Menu menu = new TestAnimatedMenuFactory().create();
     MenuServices services;
+
+    boolean b = true;
 
     public AbstractCommand(){
 
@@ -25,8 +29,15 @@ public class AbstractCommand implements CommandExecutor {
 
         Player player = (Player) commandSender;
 
-        Menu animatedMenu = new TestAnimatedMenuFactory().create();
-        services.open(AMCGUIApi.getInstance(), player.getUniqueId(), animatedMenu);
+        services.open(AMCGUIApi.getInstance(), player.getUniqueId(), menu);
+
+        if(b) {
+            b = false;
+            Bukkit.getScheduler().runTaskLater(
+                    AMCGUIApi.getInstance(),
+                    () -> services.rename(menu, Component.text("АБОБА")),
+                    20L * 3);
+        }
 
         return true;
     }

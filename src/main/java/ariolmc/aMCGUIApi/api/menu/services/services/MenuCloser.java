@@ -29,7 +29,7 @@ public class MenuCloser {
     }
 
     public void closeMenus(Plugin plugin){
-        Set<Menu> menus = registry.getMenus(plugin);
+        Set<Menu> menus = Set.copyOf(registry.getMenus(plugin));
         menus.forEach(this::closeEveryone);
     }
 
