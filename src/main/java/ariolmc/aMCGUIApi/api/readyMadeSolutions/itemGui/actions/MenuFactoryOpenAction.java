@@ -1,13 +1,14 @@
 package ariolmc.aMCGUIApi.api.readyMadeSolutions.itemGui.actions;
 
 import ariolmc.aMCGUIApi.api.events.ItemGUIClickEvent;
+import ariolmc.aMCGUIApi.api.itemGUI.ItemGUIAction;
 import ariolmc.aMCGUIApi.api.menu.services.services.MenuOpener;
 import ariolmc.aMCGUIApi.api.menu.menu.factory.MenuFactory;
 import org.bukkit.plugin.Plugin;
 
 import java.util.UUID;
 
-public class MenuFactoryOpenAction implements ariolmc.aMCGUIApi.api.itemGUI.ItemActions.Action {
+public class MenuFactoryOpenAction implements ItemGUIAction {
 
     private final Plugin owner;
     private final MenuFactory menuFactory;
