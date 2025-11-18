@@ -4,6 +4,10 @@ import ariolmc.aMCGUIApi.api.menu.menu.Menu;
 
 import java.util.List;
 
+/**
+ * Анимированный кадр, хранит в себе другие AnimationFrame.
+ * AnimationFrame, при этом может быть как статичный кадр, или другой анимированный кадр
+ */
 public class AnimatedFrame implements AnimationFrame {
 
     private boolean isAnimationFinished = false;
@@ -13,12 +17,20 @@ public class AnimatedFrame implements AnimationFrame {
     private final int repeatCount;
     private int repeatDone = 0;
 
+    /**
+     * @param frames Список кадров для анимации
+     * @param repeatCount кол-вол повторений проигрывания кадра. -1 для бесконечного цикла проигрывания
+     */
     public AnimatedFrame(List<AnimationFrame> frames, int repeatCount){
         this.frames = frames;
         currentFrameIndex = 0;
         this.repeatCount = repeatCount;
     }
 
+    /**
+     * Один раз проиграет анимацию
+     * @param frames Список кадров для анимации
+     */
     public AnimatedFrame(List<AnimationFrame> frames){
         this(frames, 1);
     }
@@ -43,6 +55,9 @@ public class AnimatedFrame implements AnimationFrame {
         return getCurrentFrame().getCurrentMenu();
     }
 
+    /**
+     * Обновить все вложенные анимации
+     */
     @Override
     public void reset() {
         currentFrameIndex = 0;

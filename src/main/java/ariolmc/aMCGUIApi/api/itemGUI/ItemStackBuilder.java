@@ -7,6 +7,16 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
 
+/**
+ * Часто используется для создания нового ItemStack, для ItemGUI
+ * <p>
+ *      Использование выглядит примерно так:
+ * <p>
+ *      new ItemStack(Material.APPLE, 16)
+ *                   .name(name)
+ *                   .lore(lore)
+ *                   .build();
+ */
 public class ItemStackBuilder {
 
     private final ItemStack itemStack;

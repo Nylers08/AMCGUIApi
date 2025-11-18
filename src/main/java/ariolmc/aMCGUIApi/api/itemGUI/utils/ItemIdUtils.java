@@ -12,11 +12,20 @@ import org.bukkit.persistence.PersistentDataType;
 
 import java.util.UUID;
 
+/**
+ * Утилита, для работы с id ItemGUI.
+ * Можно создать, сгенерировать, проверить наличие и достать id
+ *
+ */
 public class ItemIdUtils {
 
     @Getter private final static NamespacedKey ID_KEY =
             new NamespacedKey(AMCGUIApi.getInstance(), "id");
 
+    /**
+     * @throws ImpossibleSetIdForNullItem
+     * Невозможно задать id для несуществующего предмета
+     */
     public static void setIdToNBT(ItemStack item, String id){
         throwIfItemStackIsNull(item, new ImpossibleSetIdForNullItem());
 
@@ -26,6 +35,10 @@ public class ItemIdUtils {
         item.setItemMeta(meta);
     }
 
+    /**
+     * @throws ImpossibleGetIdFromNullItem
+     * Невозможно достать id для несуществующего предмета
+     */
     public static String getIdFromNBT(ItemStack item){
         throwIfItemStackIsNull(item, new ImpossibleGetIdFromNullItem());
 
@@ -34,6 +47,10 @@ public class ItemIdUtils {
                 .get(ID_KEY, PersistentDataType.STRING);
     }
 
+    /**
+     * @throws ImpossibleVerifyIdForNullItem
+     * Невозможно проверить наличие id для несуществующего предмета
+     */
     public static boolean hasIdInNBT(ItemStack item){
         throwIfItemStackIsNull(item, new ImpossibleVerifyIdForNullItem());
 
@@ -46,10 +63,16 @@ public class ItemIdUtils {
     }
 
 
+    /**
+     * Сразу генерирует id в NBT предмета
+     */
     public static void generateIdInNBT(ItemStack item){
         setIdToNBT(item, generateId());
     }
 
+    /**
+     * Id генерируется, просто через UUID
+     */
     public static String generateId(){
         return UUID.randomUUID().toString();
     }

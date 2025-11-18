@@ -5,6 +5,13 @@ import lombok.Getter;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
+/**
+ * Статичный кадр. Довольно низкий уровень в рамках анимации.
+ * Содержит в себе Menu, то сколько тиков будет показываться, и какой звук проиграет, при появлении.
+ * Будет возвращаться, то меню, которое в него положили изначально
+ * <p>Если у вас есть готовое меню, у которого всегда, одинаковое содержимое, то используйте StaticFrame.
+ * Если содержимое должно быть разным при появлении, то лучше использовать FactoryFrame
+ */
 public class StaticFrame implements AnimationFrame {
 
     private final Menu frame;
@@ -13,6 +20,12 @@ public class StaticFrame implements AnimationFrame {
     boolean isAnimationFinished;
     @Getter private final Sound sound;
 
+    /**
+     *
+     * @param frame Сам кадр, что отобразится в AnimatedMenu
+     * @param duration Сколько тиков будет показываться
+     * @param sound Какой звук проиграет при появлении
+     */
     public StaticFrame(Menu frame, long duration, Sound sound){
         this.frame = frame;
         this.duration = duration;
@@ -20,6 +33,10 @@ public class StaticFrame implements AnimationFrame {
         this.sound = sound;
     }
 
+    /**
+     * @param frame Сам кадр, что отобразится в AnimatedMenu
+     * @param duration Сколько тиков будет показываться
+     */
     public StaticFrame(Menu frame, long duration){
         this(frame, duration, null);
     }

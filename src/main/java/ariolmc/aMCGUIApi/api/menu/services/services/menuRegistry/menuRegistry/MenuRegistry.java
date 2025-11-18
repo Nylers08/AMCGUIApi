@@ -5,6 +5,9 @@ import ariolmc.aMCGUIApi.api.menu.services.services.menuRegistry.openMenuRegistr
 import ariolmc.aMCGUIApi.api.menu.services.services.menuRegistry.pluginMenuRegistry.PluginMenuAccess;
 import ariolmc.aMCGUIApi.api.menu.services.services.menuRegistry.pluginMenuRegistry.PluginMenuExistence;
 
+/**
+ * Регистрирует в себе Menu
+ */
 public interface MenuRegistry extends
         MenuRegistration,
         RegistryMenuExistence,
@@ -12,14 +15,4 @@ public interface MenuRegistry extends
         OpenMenuExistence,
         PluginMenuAccess,
         PluginMenuExistence {
-
-//    private final OpenMenuRegistry openMenuRegistry;
-//    private final PluginMenuRegistry pluginMenuRegistry;
-//
-//    public MenuRegistry(OpenMenuRegistry openMenuRegistry, PluginMenuRegistry pluginMenuRegistry) {
-//        this.openMenuRegistry = openMenuRegistry;
-//        this.pluginMenuRegistry = pluginMenuRegistry;
-//    }
-
-
 }

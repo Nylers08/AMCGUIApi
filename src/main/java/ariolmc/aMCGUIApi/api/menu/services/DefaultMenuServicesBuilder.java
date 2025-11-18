@@ -12,6 +12,10 @@ import ariolmc.aMCGUIApi.infrastructure.inventoryOpener.InventoryOpener;
 import ariolmc.aMCGUIApi.infrastructure.playerProvider.BukkitPlayerProvider;
 import ariolmc.aMCGUIApi.infrastructure.playerProvider.PlayerProvider;
 
+/**
+ * Создатель обычного MenuServices.
+ * Используйте, если вы хотите сами заботиться о меню, в своём плагине
+ */
 public class DefaultMenuServicesBuilder {
 
     public static MenuServices build(ItemGUIRegistry itemGUIRegistry){

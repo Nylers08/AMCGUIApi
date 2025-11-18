@@ -1,6 +1,7 @@
 package ariolmc.aMCGUIApi.core.commands;
 
 import ariolmc.aMCGUIApi.AMCGUIApi;
+import ariolmc.aMCGUIApi.api.menu.animatedMenu.AnimatedMenu;
 import ariolmc.aMCGUIApi.api.menu.services.MenuServices;
 import ariolmc.aMCGUIApi.api.menu.menu.Menu;
 import ariolmc.aMCGUIApi.api.readyMadeSolutions.menus.TestAnimatedMenuFactory;

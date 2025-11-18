@@ -4,6 +4,10 @@ import ariolmc.aMCGUIApi.api.menu.menu.Menu;
 import ariolmc.aMCGUIApi.api.menu.menu.factory.MenuFactory;
 import org.bukkit.Sound;
 
+/**
+ * Кадр анимации, лежит довольно низко в рамках анимации меню.
+ * Содержит в себе StaticFrame, который будет генерироваться заново, при окончании анимации
+ */
 public class FactoryFrame implements AnimationFrame{
 
     private StaticFrame frame;
@@ -11,6 +15,11 @@ public class FactoryFrame implements AnimationFrame{
     private final long duration;
     private final Sound sound;
 
+    /**
+     * @param menuFactory фабрика по создании меню
+     * @param duration сколько в тиках, будет показываться
+     * @param sound звук при показе кадра
+     */
     public FactoryFrame(MenuFactory menuFactory, long duration, Sound sound){
         this.menuFactory = menuFactory;
         this.duration = duration;
@@ -18,6 +27,10 @@ public class FactoryFrame implements AnimationFrame{
         generateNewFrame();
     }
 
+    /**
+     * @param menuFactory фабрика по создании меню
+     * @param duration сколько в тиках, будет показываться
+     */
     public FactoryFrame(MenuFactory menuFactory, long duration){
         this(menuFactory, duration, null);
     }

@@ -7,6 +7,11 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Класс, который регистрирует в себе ItemGUI.
+ * Сюда как правило обращаются слушатели, чтобы убедиться, что нажатый предмет является ItemGUI,
+ * Если это так, то они прямо из этого класса, сразу могут попросить ItemGUI выполнить заложенные в него действия
+ */
 public class ItemGUIRegistry {
 
     private final Map<String, ItemGUI> itemGUIMap = new HashMap<>();
