@@ -18,6 +18,9 @@ public interface Menu extends InventoryHolder {
     ItemStack getItem(int slot);
     NamedInventory getNamedInventory();
 
+    /**
+     * Может ли игрок двигать предметы в Menu
+     */
     boolean isAllowItemMovement();
     void setAllowItemMovement(boolean value);
 }

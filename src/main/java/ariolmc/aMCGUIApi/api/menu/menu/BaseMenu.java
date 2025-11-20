@@ -19,7 +19,6 @@ public class BaseMenu implements Menu {
     @Setter private boolean allowItemMovement = false;
 
     /**
-     *
      * @param factory попытался реализовать Dependency Inversion.
      *                Можете смело использовать GUINamedInvFactory
      */
@@ -28,7 +27,6 @@ public class BaseMenu implements Menu {
     }
 
     /**
-     *
      * @return Inventory, который потом используется для отображения Menu
      */
     @Override
