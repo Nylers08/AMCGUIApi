@@ -2,6 +2,7 @@ package ariolmc.aMCGUIApi.core.commands;
 
 import ariolmc.aMCGUIApi.AMCGUIApi;
 import ariolmc.aMCGUIApi.api.menu.animatedMenu.AnimatedMenu;
+import ariolmc.aMCGUIApi.api.menu.menu.factory.MenuFactory;
 import ariolmc.aMCGUIApi.api.menu.services.MenuServices;
 import ariolmc.aMCGUIApi.api.menu.menu.Menu;
 import ariolmc.aMCGUIApi.api.readyMadeSolutions.menus.TestAnimatedMenuFactory;
@@ -15,7 +16,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class AbstractCommand implements CommandExecutor {
 
-    Menu menu = new TestAnimatedMenuFactory().create();
+    MenuFactory menuFactory = new TestAnimatedMenuFactory();
+    Menu menu = menuFactory.create();
     MenuServices services;
 
     boolean b = true;
@@ -30,15 +32,7 @@ public class AbstractCommand implements CommandExecutor {
 
         Player player = (Player) commandSender;
 
-        services.open(AMCGUIApi.getInstance(), player.getUniqueId(), menu);
-
-        if(b) {
-            b = false;
-            Bukkit.getScheduler().runTaskLater(
-                    AMCGUIApi.getInstance(),
-                    () -> services.rename(menu, Component.text("АБОБА")),
-                    20L * 3);
-        }
+        services.openNewMenu(AMCGUIApi.getInstance(), player.getUniqueId(), menuFactory);
 
         return true;
     }
