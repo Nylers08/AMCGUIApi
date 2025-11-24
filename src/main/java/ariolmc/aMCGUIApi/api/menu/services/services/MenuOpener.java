@@ -54,9 +54,11 @@ public class MenuOpener {
      * Переоткрыть меню для всех игроков. К примеру, если оно было переименовано
      */
     public void reopen(Menu menu){
-        Set<UUID> viewers = Set.copyOf(registry.getViewers(menu));
-        Plugin plugin = registry.getPlugin(menu);
+        Set<UUID> viewers = registry.getViewers(menu);
         if(viewers == null || viewers.isEmpty()) return;
-        viewers.forEach(v->open(plugin, v, menu));
+        Set<UUID> copiedViewers = Set.copyOf(viewers);
+
+        Plugin plugin = registry.getPlugin(menu);
+        copiedViewers.forEach(v->open(plugin, v, menu));
     }
 }

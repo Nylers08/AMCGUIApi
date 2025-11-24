@@ -46,7 +46,7 @@ public final class AMCGUIApi extends JavaPlugin {
     }
 
     private void initItemGUIServices(){
-        itemGUIRegistry = new ItemGUIRegistry();
+        itemGUIRegistry = new ItemGUIRegistry(this);
     }
 
     private void initMenuServices(){

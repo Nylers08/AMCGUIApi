@@ -91,13 +91,13 @@ public class BaseAnimatedMenu implements AnimatedMenu {
         if(isAnimationFinished())
             return;
 
-        showCurrentFrame();
+        if(hasFrameChanged()){
+            showCurrentFrame();
+        }
     }
 
     private void showCurrentFrame(){
-        if(hasFrameChanged()){
-            menuOpener.reopen(this);
-        }
+        menuOpener.reopen(this);
     }
 
     private boolean hasFrameChanged(){
