@@ -15,11 +15,21 @@ public class CloseMenusPlugin implements SubCommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) {
+        if(!checkPermission(sender)){
+            sender.sendMessage("§cУ вас не прав, для использования этой команды!");
+            return;
+        }
+
         String pluginName = args[1];
         try {
             menuCloser.closeMenus(pluginName);
+            sender.sendMessage("§6[AMCGUIApi] §fУспешно закрыты все меню для §6" + pluginName);
         } catch (NotFoundPluginForCloser e){
             sender.sendMessage("§6[AMCGUIApi] §f" + e.getMessage());
         }
+    }
+
+    private boolean checkPermission(CommandSender sender){
+        return sender.hasPermission("amcguiapi.closeplugin");
     }
 }

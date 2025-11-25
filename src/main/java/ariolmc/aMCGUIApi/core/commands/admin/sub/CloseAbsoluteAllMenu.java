@@ -14,7 +14,16 @@ public class CloseAbsoluteAllMenu implements SubCommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) {
+        if(!checkPermission(sender)){
+            sender.sendMessage("§cУ вас не прав, для использования этой команды!");
+            return;
+        }
+
         menuCloser.closeAbsoluteAllMenu();
         sender.sendMessage("§6[AMCGuiApi]§f Все меню успешно закрыты!");
+    }
+
+    private boolean checkPermission(CommandSender sender){
+        return sender.hasPermission("amcguiapi.closeall");
     }
 }

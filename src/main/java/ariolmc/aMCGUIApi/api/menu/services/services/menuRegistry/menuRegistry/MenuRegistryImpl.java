@@ -29,7 +29,8 @@ public class MenuRegistryImpl implements MenuRegistry{
     @Override
     public void unregister(UUID viewerId) {
         Optional<Menu> menu = openMenuRegistry.getMenu(viewerId);
-        if(menu.isEmpty()) throw new NotFoundMenuViewer(viewerId);
+        if(menu.isEmpty())
+            throw new NotFoundMenuViewer(viewerId);
 
         openMenuRegistry.unregister(viewerId);
         pluginMenuRegistry.unregister(menu.get());

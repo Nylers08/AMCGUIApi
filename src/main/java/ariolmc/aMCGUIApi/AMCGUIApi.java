@@ -1,14 +1,14 @@
 package ariolmc.aMCGUIApi;
 
 import ariolmc.aMCGUIApi.api.listeners.ItemGUIClickListener;
-import ariolmc.aMCGUIApi.core.commands.AbstractCommand;
 import ariolmc.aMCGUIApi.api.itemGUI.services.ItemGUIRegistry;
 import ariolmc.aMCGUIApi.api.listeners.InventoryClickListener;
 import ariolmc.aMCGUIApi.api.listeners.InventoryCloseListener;
 import ariolmc.aMCGUIApi.api.menu.animatedMenu.AnimationTickGenerator;
 import ariolmc.aMCGUIApi.api.menu.services.DefaultMenuServicesBuilder;
 import ariolmc.aMCGUIApi.api.menu.services.MenuServices;
-import ariolmc.aMCGUIApi.core.commands.admin.GuiApiCommand;
+import ariolmc.aMCGUIApi.core.commands.admin.GUIApiCommand;
+import ariolmc.aMCGUIApi.core.commands.tabCompleters.admin.GUIApiTabCompleter;
 import ariolmc.aMCGUIApi.infrastructure.ApiWrappers;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -23,10 +23,11 @@ public final class AMCGUIApi extends JavaPlugin {
     @Getter private ApiWrappers apiWrappers;
 
     @Getter private MenuServices menuServices;
-
     @Getter private ItemGUIRegistry itemGUIRegistry;
 
     @Getter private AnimationTickGenerator animationTickGenerator;
+
+    @Getter private GUIApiCommand guiApiCommand;
 
 
     @Override
@@ -67,7 +68,9 @@ public final class AMCGUIApi extends JavaPlugin {
     }
 
     private void initCommands(){
-        Objects.requireNonNull(getCommand("guiapi")).setExecutor(new GuiApiCommand(menuServices));
+        this.guiApiCommand = new GUIApiCommand(menuServices);
+        Objects.requireNonNull(getCommand("guiapi")).setExecutor(guiApiCommand);
+        Objects.requireNonNull(getCommand("guiapi")).setTabCompleter(new GUIApiTabCompleter(guiApiCommand));
     }
 
 

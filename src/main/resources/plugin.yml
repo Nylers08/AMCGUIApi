@@ -1,5 +1,5 @@
 name: AMCGUIApi
-version: 'v1.0.2-SNAPSHOT'
+version: 'v1.1.0'
 main: ariolmc.aMCGUIApi.AMCGUIApi
 api-version: '1.21'
 
@@ -7,3 +7,23 @@ commands:
   guiapi:
     description: AMCGUIApi
     usage: /guiapi
+    permission: amcguiapi.use
+    permission-message: У вас нет прав на эту команду.
+
+
+permissions:
+  amcguiapi.use:
+    description: Разрешает использование /guiapi
+    default: false
+
+  amcguiapi.closeall:
+    description: Разрешает закрывать абсолютно все меню
+    default: false
+
+  amcguiapi.closeplugin:
+    description: Разрешает закрывать все меню, конкретного плагина
+    default: false
+
+  amcguiapi.closeplayer:
+    description: Разрешает закрывать меню, конкретного игрока
+    default: false

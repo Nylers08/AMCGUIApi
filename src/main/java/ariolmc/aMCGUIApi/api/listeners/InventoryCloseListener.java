@@ -21,7 +21,7 @@ public class InventoryCloseListener implements Listener {
     public void unregisterMenu(InventoryCloseEvent event){
         InventoryHolder holder = event.getInventory().getHolder();
         UUID playerId = event.getPlayer().getUniqueId();
-        if(holder instanceof Menu){
+        if(menuRegistry.existViewer(playerId) && holder instanceof Menu){
             menuRegistry.unregister(playerId);
         }
     }

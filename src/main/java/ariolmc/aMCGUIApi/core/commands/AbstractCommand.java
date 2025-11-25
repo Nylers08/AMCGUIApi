@@ -22,10 +22,15 @@ public abstract class AbstractCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String @NotNull [] args) {
+        if(!checkPrediction(sender, args))
+            return false;
+
         callSubCommand(sender, args);
 
         return true;
     }
+
+    protected abstract boolean checkPrediction(CommandSender sender, String[] args);
 
     protected void callSubCommand(CommandSender sender, String[] args){
         if(args.length < 1){
@@ -35,7 +40,10 @@ public abstract class AbstractCommand implements CommandExecutor {
 
         String sub = args[0];
         SubCommand subCommand = subCommands.get(sub);
-        if(subCommand == null) return;
+        if(subCommand == null) {
+            sender.sendMessage("§cКоманда не найдена!");
+            return;
+        }
 
         subCommand.execute(sender, args);
     }
