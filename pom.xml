@@ -6,7 +6,7 @@
 
     <groupId>com.github.Nylers08</groupId>
     <artifactId>AMCGUIApi</artifactId>
-    <version>v1.0.1-SNAPSHOT</version>
+    <version>v1.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>amcguiapi</name>
