@@ -1,8 +1,10 @@
 package ariolmc.aMCGUIApi.api.menu.services.services;
 
 import ariolmc.aMCGUIApi.api.menu.menu.Menu;
+import ariolmc.aMCGUIApi.api.menu.services.exceptions.NotFoundPluginForCloser;
 import ariolmc.aMCGUIApi.api.menu.services.services.menuRegistry.menuRegistry.MenuRegistry;
 import ariolmc.aMCGUIApi.infrastructure.inventoryCloser.InventoryCloser;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
 import java.util.Set;
@@ -48,6 +50,16 @@ public class MenuCloser {
     public void closeMenus(Plugin plugin){
         Set<Menu> menus = Set.copyOf(registry.getMenus(plugin));
         menus.forEach(this::closeEveryone);
+    }
+
+    /**
+     * Закрыть меню, по его имени
+     */
+    public void closeMenus(String pluginName){
+        Plugin plugin = Bukkit.getPluginManager().getPlugin(pluginName);
+        if(plugin == null)
+            throw new NotFoundPluginForCloser(pluginName);
+        closeMenus(plugin);
     }
 
     /**

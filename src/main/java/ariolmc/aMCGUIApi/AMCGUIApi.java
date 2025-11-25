@@ -7,6 +7,7 @@ import ariolmc.aMCGUIApi.api.listeners.InventoryCloseListener;
 import ariolmc.aMCGUIApi.api.menu.animatedMenu.AnimationTickGenerator;
 import ariolmc.aMCGUIApi.api.menu.services.DefaultMenuServicesBuilder;
 import ariolmc.aMCGUIApi.api.menu.services.MenuServices;
+import ariolmc.aMCGUIApi.core.commands.admin.GuiApiCommand;
 import ariolmc.aMCGUIApi.infrastructure.ApiWrappers;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -64,7 +65,7 @@ public final class AMCGUIApi extends JavaPlugin {
     }
 
     private void initCommands(){
-        Objects.requireNonNull(getCommand("guiapi")).setExecutor(new AbstractCommand());
+        Objects.requireNonNull(getCommand("guiapi")).setExecutor(new GuiApiCommand(menuServices));
     }
 
 

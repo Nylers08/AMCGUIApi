@@ -1,39 +1,48 @@
 package ariolmc.aMCGUIApi.core.commands;
 
-import ariolmc.aMCGUIApi.AMCGUIApi;
-import ariolmc.aMCGUIApi.api.menu.animatedMenu.AnimatedMenu;
-import ariolmc.aMCGUIApi.api.menu.menu.factory.MenuFactory;
-import ariolmc.aMCGUIApi.api.menu.services.MenuServices;
-import ariolmc.aMCGUIApi.api.menu.menu.Menu;
-import ariolmc.aMCGUIApi.api.readyMadeSolutions.menus.TestAnimatedMenuFactory;
-import net.kyori.adventure.text.Component;
-import org.bukkit.Bukkit;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class AbstractCommand implements CommandExecutor {
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
-    MenuFactory menuFactory = new TestAnimatedMenuFactory();
-    Menu menu = menuFactory.create();
-    MenuServices services;
+public abstract class AbstractCommand implements CommandExecutor {
 
-    boolean b = true;
+    private final Map<String, SubCommand> subCommands = new HashMap<>();
 
-    public AbstractCommand(){
-
-        services = AMCGUIApi.getInstance().getMenuServices();
+    public void addSubCommand(SubCommand subCommand, String... names){
+        for (String name : names){
+            subCommands.put(name, subCommand);
+        }
     }
 
     @Override
-    public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String @NotNull [] strings) {
-
-        Player player = (Player) commandSender;
-
-        services.openNewMenu(AMCGUIApi.getInstance(), player.getUniqueId(), menuFactory);
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String @NotNull [] args) {
+        callSubCommand(sender, args);
 
         return true;
+    }
+
+    protected void callSubCommand(CommandSender sender, String[] args){
+        if(args.length < 1){
+            actionNoArgs(sender);
+            return;
+        }
+
+        String sub = args[0];
+        SubCommand subCommand = subCommands.get(sub);
+        if(subCommand == null) return;
+
+        subCommand.execute(sender, args);
+    }
+
+    protected abstract void actionNoArgs(CommandSender sender);
+
+    public Set<String> getAllSubCommandNames(){
+        return subCommands.keySet();
     }
 }
