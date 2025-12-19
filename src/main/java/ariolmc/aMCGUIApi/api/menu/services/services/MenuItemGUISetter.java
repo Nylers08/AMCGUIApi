@@ -11,15 +11,6 @@ import lombok.RequiredArgsConstructor;
  */
 public class MenuItemGUISetter {
 
-    private final ItemGUIRegistry itemGUIRegistry;
-
-    /**
-     * @param itemGUIRegistry Куда именно регистрировать вставляемые ItemGUI
-     */
-    public MenuItemGUISetter(ItemGUIRegistry itemGUIRegistry) {
-        this.itemGUIRegistry = itemGUIRegistry;
-    }
-
     /**
      * Используется, для вставления ItemGUI с "неуникальной" реализации.
      * К примеру для декоративных предметов, у них нет никакой реализации, требующей разных, не идентичных ItemGUI.
@@ -30,7 +21,7 @@ public class MenuItemGUISetter {
         for (int slot : slots){
             menu.setItem(slot, itemGUI.getItemStack());
         }
-        itemGUIRegistry.register(itemGUI);
+        menu.getItemGUIRegistry().register(itemGUI);
     }
 
     /**

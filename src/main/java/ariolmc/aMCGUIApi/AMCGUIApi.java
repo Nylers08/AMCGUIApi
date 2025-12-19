@@ -1,7 +1,5 @@
 package ariolmc.aMCGUIApi;
 
-import ariolmc.aMCGUIApi.api.listeners.ItemGUIClickListener;
-import ariolmc.aMCGUIApi.api.itemGUI.services.ItemGUIRegistry;
 import ariolmc.aMCGUIApi.api.listeners.InventoryClickListener;
 import ariolmc.aMCGUIApi.api.listeners.InventoryCloseListener;
 import ariolmc.aMCGUIApi.api.menu.animatedMenu.AnimationTickGenerator;
@@ -23,7 +21,6 @@ public final class AMCGUIApi extends JavaPlugin {
     @Getter private ApiWrappers apiWrappers;
 
     @Getter private MenuServices menuServices;
-    @Getter private ItemGUIRegistry itemGUIRegistry;
 
     @Getter private AnimationTickGenerator animationTickGenerator;
 
@@ -36,7 +33,6 @@ public final class AMCGUIApi extends JavaPlugin {
         instance = this;
 
         initApiWrappers();
-        initItemGUIServices();
         initMenuServices();
         initAnimationTickGenerator();
 
@@ -48,12 +44,8 @@ public final class AMCGUIApi extends JavaPlugin {
         apiWrappers = new ApiWrappers();
     }
 
-    private void initItemGUIServices(){
-        itemGUIRegistry = new ItemGUIRegistry(this);
-    }
-
     private void initMenuServices(){
-        menuServices = DefaultMenuServicesBuilder.build(itemGUIRegistry);
+        menuServices = DefaultMenuServicesBuilder.build();
     }
 
     private void initAnimationTickGenerator(){
@@ -64,7 +56,6 @@ public final class AMCGUIApi extends JavaPlugin {
     private void initListeners(){
         Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryCloseListener(menuServices.registry()), this);
-        Bukkit.getPluginManager().registerEvents(new ItemGUIClickListener(itemGUIRegistry), this);
     }
 
     private void initCommands(){

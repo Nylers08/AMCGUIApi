@@ -1,5 +1,6 @@
 package ariolmc.aMCGUIApi.api.menu.animatedMenu;
 
+import ariolmc.aMCGUIApi.api.itemGUI.services.ItemGUIRegistry;
 import ariolmc.aMCGUIApi.api.menu.animatedMenu.animationFrame.core.AnimationFrame;
 import ariolmc.aMCGUIApi.api.menu.animatedMenu.animationFrame.factory.AnimationFrameFactory;
 import ariolmc.aMCGUIApi.api.namedInventory.NamedInventory;
@@ -65,6 +66,11 @@ public class BaseAnimatedMenu implements AnimatedMenu {
     @Override
     public NamedInventory getNamedInventory() {
         return animatedFrame.getCurrentMenu().getNamedInventory();
+    }
+
+    @Override
+    public ItemGUIRegistry getItemGUIRegistry() {
+        return getCurrentMenu().getItemGUIRegistry();
     }
 
     @Override
