@@ -1,5 +1,6 @@
 package ariolmc.aMCGUIApi.api.menu.menu;
 
+import ariolmc.aMCGUIApi.api.itemGUI.services.ItemGUIRegistry;
 import ariolmc.aMCGUIApi.api.namedInventory.NamedInventory;
 import ariolmc.aMCGUIApi.api.namedInventory.factory.NamedInventoryFactory;
 import lombok.Getter;
@@ -17,6 +18,9 @@ public class BaseMenu implements Menu {
 
     @Delegate protected NamedInventory namedInventory;
     @Setter private boolean allowItemMovement = false;
+
+    @Getter private final ItemGUIRegistry itemGUIRegistry =
+            new ItemGUIRegistry();
 
     /**
      * @param factory попытался реализовать Dependency Inversion.

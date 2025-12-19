@@ -1,5 +1,6 @@
 package ariolmc.aMCGUIApi.api.menu.menu;
 
+import ariolmc.aMCGUIApi.api.itemGUI.services.ItemGUIRegistry;
 import ariolmc.aMCGUIApi.api.namedInventory.NamedInventory;
 import net.kyori.adventure.text.Component;
 import org.bukkit.inventory.InventoryHolder;
@@ -17,6 +18,8 @@ public interface Menu extends InventoryHolder {
     void setItem(int slot, ItemStack item);
     ItemStack getItem(int slot);
     NamedInventory getNamedInventory();
+
+    ItemGUIRegistry getItemGUIRegistry();
 
     /**
      * Может ли игрок двигать предметы в Menu

@@ -18,7 +18,7 @@ import ariolmc.aMCGUIApi.infrastructure.playerProvider.PlayerProvider;
  */
 public class DefaultMenuServicesBuilder {
 
-    public static MenuServices build(ItemGUIRegistry itemGUIRegistry){
+    public static MenuServices build(){
 
         MenuRegistry registry = new DefaultMenuRegistry();
         PlayerProvider playerProvider = new BukkitPlayerProvider();
@@ -32,7 +32,7 @@ public class DefaultMenuServicesBuilder {
                 menuOpener,
                 new MenuCloser(registry, invCloser),
                 new MenuRenamer(menuOpener),
-                new MenuItemGUISetter(itemGUIRegistry)
+                new MenuItemGUISetter()
                 );
     }
 }

@@ -1,13 +1,11 @@
 package ariolmc.aMCGUIApi.api.listeners;
 
-import ariolmc.aMCGUIApi.AMCGUIApi;
 import ariolmc.aMCGUIApi.api.events.ItemGUIClickEvent;
 import ariolmc.aMCGUIApi.api.itemGUI.ItemGUI;
 import ariolmc.aMCGUIApi.api.itemGUI.services.ItemGUIRegistry;
 import ariolmc.aMCGUIApi.api.itemGUI.utils.ItemIdUtils;
 import ariolmc.aMCGUIApi.api.menu.menu.Menu;
 import org.bukkit.Bukkit;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -18,11 +16,14 @@ import java.util.Objects;
 
 public class InventoryClickListener implements Listener {
 
-    private final ItemGUIRegistry itemGUIRegistry
-            = AMCGUIApi.getInstance().getItemGUIRegistry();
-
     @EventHandler
     public void itemGUIClick(InventoryClickEvent event){
+        InventoryHolder holder = event.getInventory().getHolder();
+        if(!(holder instanceof Menu menu)){
+            return;
+        }
+        ItemGUIRegistry itemGUIRegistry = menu.getItemGUIRegistry();
+
         ItemStack item = event.getCurrentItem();
         if(item == null || !ItemIdUtils.hasIdInNBT(item)) return;
 
@@ -30,7 +31,8 @@ public class InventoryClickListener implements Listener {
         if(itemGUIRegistry.hasItemGUI(id)){
             ItemGUI itemGUI = itemGUIRegistry.getItemGUI(id);
             ItemGUIClickEvent itemGUIClickEvent = new ItemGUIClickEvent(event, itemGUI);
-            Bukkit.getPluginManager().callEvent(itemGUIClickEvent);
+            itemGUIClickEvent.callEvent();
+            itemGUIRegistry.executeItemGUI(id, itemGUIClickEvent);
         }
     }
 
